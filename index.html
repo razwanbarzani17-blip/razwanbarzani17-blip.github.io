@@ -8,55 +8,161 @@
 
 <style>
 
+/* =========================
+   RESET
+========================= */
+
 *{
-    box-sizing:border-box;
     margin:0;
     padding:0;
+    box-sizing:border-box;
 }
 
-html{
-    scroll-behavior:smooth;
+html,body{
+    width:100%;
+    min-height:100%;
 }
 
 body{
-    min-height:100vh;
-    overflow-x:hidden;
+    overflow:hidden;
+    background:#18030e;
     color:white;
     font-family:Georgia,serif;
+}
+
+
+/* =========================
+   DREAMY PINK BACKGROUND
+========================= */
+
+.background{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 50% 25%,
-            #ffb6d5 0%,
-            #f56f9f 25%,
-            #c83f72 50%,
-            #5a1635 78%,
-            #17030d 100%
+            circle at 50% 45%,
+            rgba(255,135,185,.75),
+            transparent 28%
+        ),
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(255,80,150,.45),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 75%,
+            rgba(188,55,125,.5),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #21040f,
+            #741a45,
+            #d84f87,
+            #5b1235,
+            #12020b
         );
+
+    z-index:-10;
 }
 
 
-/* SOFT GLOW */
+/* Moving pink lights */
 
-.glow{
-    position:fixed;
-    width:420px;
-    height:420px;
+.light{
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
     border-radius:50%;
-    background:rgba(255,190,220,.25);
-    filter:blur(100px);
-    pointer-events:none;
-    z-index:0;
+
+    background:
+        rgba(255,170,210,.18);
+
+    filter:blur(70px);
+
+    animation:
+        moveLight 12s ease-in-out infinite alternate;
 }
 
-.glow.one{
-    top:-200px;
-    left:-180px;
+.light:nth-child(1){
+    top:-100px;
+    left:-100px;
 }
 
-.glow.two{
-    bottom:-220px;
-    right:-180px;
+.light:nth-child(2){
+    right:-100px;
+    bottom:-80px;
+
+    animation-delay:3s;
+}
+
+.light:nth-child(3){
+    top:40%;
+    left:40%;
+
+    width:180px;
+    height:180px;
+
+    animation-delay:6s;
+}
+
+@keyframes moveLight{
+
+    0%{
+        transform:translate(0,0) scale(1);
+    }
+
+    50%{
+        transform:translate(100px,60px) scale(1.3);
+    }
+
+    100%{
+        transform:translate(-50px,-80px) scale(.9);
+    }
+}
+
+
+/* =========================
+   STARS
+========================= */
+
+.stars{
+    position:absolute;
+    inset:0;
+
+    background-image:
+        radial-gradient(
+            rgba(255,255,255,.8) 1px,
+            transparent 1px
+        ),
+        radial-gradient(
+            rgba(255,210,230,.6) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        90px 90px,
+        150px 150px;
+
+    opacity:.35;
+
+    animation:
+        starsMove 30s linear infinite;
+}
+
+@keyframes starsMove{
+
+    from{
+        transform:translateY(0);
+    }
+
+    to{
+        transform:translateY(-100px);
+    }
 }
 
 
@@ -67,49 +173,71 @@ body{
 #enter{
     position:fixed;
     inset:0;
-    z-index:9999;
+
+    z-index:1000;
 
     display:flex;
     justify-content:center;
     align-items:center;
+
     text-align:center;
 
     background:
         radial-gradient(
-            circle at 50% 40%,
-            #ffb1d0,
-            #d94c7d 48%,
-            #4d102c 100%
+            circle at center,
+            #ff9fc5,
+            #a72d61 45%,
+            #230511 100%
         );
 
-    transition:opacity 1s ease;
+    transition:
+        opacity 1.2s ease,
+        visibility 1.2s ease;
 }
 
-.enter-box{
-    padding:30px;
+.enter-content{
+    animation:
+        enterAppear 2s ease;
+}
+
+@keyframes enterAppear{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
 
 .enter-heart{
-    font-size:78px;
+    font-size:80px;
 
     filter:
         drop-shadow(
-            0 0 30px
-            #ffb7d5
+            0 0 35px
+            #ff8dbb
         );
 
-    animation:heartbeat 1.5s infinite;
+    animation:
+        heartbeat 1.5s infinite;
 }
 
 @keyframes heartbeat{
+
     50%{
         transform:scale(1.15);
     }
 }
 
 .enter-title{
-    margin-top:22px;
+    margin-top:25px;
+
     font-size:38px;
+
     font-weight:normal;
 }
 
@@ -117,14 +245,17 @@ body{
     margin-top:12px;
 
     font-family:Arial,sans-serif;
+
     font-size:10px;
-    letter-spacing:6px;
+
+    letter-spacing:7px;
 
     opacity:.6;
 }
 
 .enter-button{
-    margin-top:32px;
+
+    margin-top:35px;
 
     padding:15px 30px;
 
@@ -145,11 +276,14 @@ body{
 
     backdrop-filter:blur(12px);
 
-    transition:.3s;
+    transition:.4s;
 }
 
 .enter-button:hover{
-    transform:scale(1.05);
+    transform:scale(1.07);
+
+    background:
+        rgba(255,255,255,.2);
 }
 
 
@@ -159,87 +293,49 @@ body{
 
 .main{
     position:relative;
-    z-index:2;
 
-    min-height:100vh;
+    width:100vw;
+    height:100vh;
 
     display:flex;
+
     justify-content:center;
     align-items:center;
 
-    padding:25px 18px;
+    text-align:center;
 }
 
-.card{
-    width:100%;
-    max-width:500px;
 
-    text-align:center;
+/* =========================
+   MAIN GLOW
+========================= */
 
-    padding:45px 25px;
+.center-glow{
 
-    border-radius:35px;
+    position:absolute;
+
+    width:500px;
+    height:500px;
+
+    border-radius:50%;
 
     background:
-        rgba(255,255,255,.10);
+        rgba(255,130,185,.16);
 
-    border:
-        1px solid
-        rgba(255,255,255,.25);
+    filter:blur(80px);
 
-    backdrop-filter:blur(20px);
+    animation:
+        centerPulse 5s ease-in-out infinite;
 
-    box-shadow:
-        0 30px 90px
-        rgba(60,0,30,.45);
-
-    animation:appear 1.5s ease;
+    pointer-events:none;
 }
 
-@keyframes appear{
-    from{
-        opacity:0;
-        transform:translateY(25px) scale(.97);
+@keyframes centerPulse{
+
+    50%{
+        transform:scale(1.2);
+        opacity:.7;
     }
-
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
-}
-
-
-/* =========================
-   DATE
-========================= */
-
-.date{
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:7px;
-
-    opacity:.55;
-
-    margin-bottom:22px;
-}
-
-
-/* =========================
-   HEART
-========================= */
-
-.big-heart{
-    font-size:70px;
-
-    filter:
-        drop-shadow(
-            0 0 30px
-            rgba(255,80,150,.8)
-        );
-
-    animation:heartbeat 1.6s infinite;
 }
 
 
@@ -247,14 +343,50 @@ body{
    MAIN TEXT
 ========================= */
 
+.content{
+    position:relative;
+
+    z-index:30;
+
+    padding:30px;
+}
+
+.date{
+
+    font-family:Arial,sans-serif;
+
+    font-size:11px;
+
+    letter-spacing:8px;
+
+    opacity:.6;
+
+    margin-bottom:25px;
+}
+
+.heart{
+
+    font-size:70px;
+
+    filter:
+        drop-shadow(
+            0 0 35px
+            #ff5798
+        );
+
+    animation:
+        heartbeat 1.6s infinite;
+}
+
 h1{
-    margin-top:15px;
+
+    margin-top:12px;
 
     font-size:
         clamp(
             55px,
-            16vw,
-            88px
+            15vw,
+            95px
         );
 
     font-weight:normal;
@@ -263,67 +395,46 @@ h1{
         linear-gradient(
             90deg,
             #fff,
-            #ffe0eb,
-            #fff
+            #ffd4e5,
+            #fff,
+            #ffb5d2
         );
 
+    background-size:300%;
+
     -webkit-background-clip:text;
+
     -webkit-text-fill-color:transparent;
+
+    animation:
+        shine 5s linear infinite;
+}
+
+@keyframes shine{
+
+    to{
+        background-position:
+            300% center;
+    }
 }
 
 .be-mine{
+
     margin-top:10px;
 
-    font-size:27px;
+    font-size:28px;
 
     font-style:italic;
 
     color:#fff;
 
-    letter-spacing:1px;
-
     text-shadow:
         0 0 20px
-        rgba(255,150,190,.7);
+        rgba(255,150,195,.8);
 }
 
+.small-line{
 
-/* =========================
-   LOVE IMAGE
-========================= */
-
-.love-image{
-    width:100%;
-
-    height:220px;
-
-    margin-top:32px;
-
-    border-radius:25px;
-
-    overflow:hidden;
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    box-shadow:
-        0 20px 50px
-        rgba(0,0,0,.35);
-}
-
-.love-image img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-}
-
-
-/* =========================
-   MUSIC
-========================= */
-
-.music-note{
     margin-top:18px;
 
     font-family:Arial,sans-serif;
@@ -337,163 +448,134 @@ h1{
 
 
 /* =========================
-   GIFT
+   FLOATING PICTURES
 ========================= */
 
-.gift-area{
-    margin-top:32px;
-}
+.photo{
 
-.gift{
-    display:inline-block;
+    position:absolute;
 
-    font-size:62px;
+    width:145px;
+    height:190px;
 
-    cursor:pointer;
+    padding:6px;
 
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255,150,200,.7)
-        );
-
-    animation:giftFloat 2s infinite;
-
-    transition:.3s;
-}
-
-.gift:hover{
-    transform:scale(1.1);
-}
-
-@keyframesgiftFloat{
-    50%{
-        transform:translateY(-7px);
-    }
-}
-
-.gift-label{
-    margin-top:8px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    opacity:.4;
-}
-
-
-/* =========================
-   SURPRISE
-========================= */
-
-.secret{
-    display:none;
-
-    margin-top:30px;
-
-    animation:reveal 1.2s ease;
-}
-
-@keyframes reveal{
-    from{
-        opacity:0;
-        transform:scale(.85);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.secret-title{
-    font-size:30px;
-
-    font-weight:normal;
-
-    color:white;
-}
-
-.secret-text{
-    margin-top:14px;
-
-    font-size:18px;
-
-    line-height:1.7;
-
-    color:#ffe4ee;
-}
-
-.signature{
-    margin-top:15px;
-
-    font-size:22px;
-
-    color:#fff;
-}
-
-
-/* =========================
-   MUSIC FALLBACK
-========================= */
-
-#musicHint{
-    position:fixed;
-
-    bottom:22px;
-
-    left:50%;
-
-    transform:translateX(-50%);
-
-    z-index:100;
-
-    padding:11px 18px;
-
-    border-radius:30px;
+    border-radius:18px;
 
     background:
-        rgba(50,0,25,.75);
+        rgba(255,255,255,.9);
 
-    border:
-        1px solid
-        rgba(255,255,255,.2);
+    box-shadow:
+        0 20px 60px
+        rgba(0,0,0,.45);
 
-    backdrop-filter:blur(12px);
+    opacity:.82;
 
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:1px;
-
-    opacity:0;
+    z-index:5;
 
     pointer-events:none;
 
-    transition:.5s;
-
-    white-space:nowrap;
+    animation:
+        photoFloat
+        var(--duration)
+        ease-in-out
+        infinite alternate;
 }
 
-#musicHint.show{
-    opacity:.8;
+.photo img{
+
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    border-radius:13px;
+}
+
+.photo.one{
+
+    left:5%;
+    top:13%;
+
+    --duration:7s;
+
+    transform:rotate(-12deg);
+}
+
+.photo.two{
+
+    right:5%;
+    top:18%;
+
+    --duration:8s;
+
+    transform:rotate(10deg);
+}
+
+.photo.three{
+
+    left:9%;
+    bottom:8%;
+
+    --duration:9s;
+
+    transform:rotate(8deg);
+}
+
+.photo.four{
+
+    right:8%;
+    bottom:10%;
+
+    --duration:7.5s;
+
+    transform:rotate(-10deg);
+}
+
+.photo.five{
+
+    left:50%;
+    top:5%;
+
+    width:105px;
+    height:135px;
+
+    opacity:.6;
+
+    --duration:10s;
+
+    transform:
+        translateX(-50%)
+        rotate(5deg);
+}
+
+@keyframes photoFloat{
+
+    0%{
+        transform:
+            translateY(0)
+            rotate(var(--rotation));
+    }
+
+    100%{
+        transform:
+            translateY(-22px)
+            rotate(var(--rotation));
+    }
 }
 
 
 /* =========================
-   FLOATING HEARTS + FLOWERS
+   FLOATING LOVE
 ========================= */
 
 .float{
+
     position:fixed;
 
     bottom:-50px;
 
-    z-index:10;
+    z-index:40;
 
     pointer-events:none;
 
@@ -515,7 +597,7 @@ h1{
         transform:
             translateY(0)
             translateX(0)
-            rotate(0deg);
+            rotate(0);
     }
 
     15%{
@@ -534,32 +616,32 @@ h1{
 
 
 /* =========================
-   FLOATING I LOVE YOU
+   I LOVE YOU FLOATING
 ========================= */
 
 .love-text{
+
     position:fixed;
 
     bottom:-40px;
 
-    z-index:9;
+    z-index:39;
 
     pointer-events:none;
-
-    color:#ffe1ec;
-
-    font-family:Georgia,serif;
 
     font-size:16px;
 
     font-style:italic;
 
+    color:#ffe0ec;
+
     text-shadow:
         0 0 15px
-        rgba(255,130,190,.9);
+        rgba(255,120,180,.9);
 
     animation:
         textUp
+        9s
         linear
         forwards;
 }
@@ -575,7 +657,7 @@ h1{
     }
 
     15%{
-        opacity:.7;
+        opacity:.75;
     }
 
     100%{
@@ -588,18 +670,217 @@ h1{
 }
 
 
-/* FOOTER */
+/* =========================
+   GIFT
+========================= */
 
-.footer{
-    margin-top:28px;
+.gift{
+
+    position:absolute;
+
+    bottom:30px;
+
+    left:50%;
+
+    transform:
+        translateX(-50%);
+
+    z-index:50;
+
+    text-align:center;
+}
+
+.gift-icon{
+
+    font-size:45px;
+
+    cursor:pointer;
+
+    display:inline-block;
+
+    filter:
+        drop-shadow(
+            0 0 20px
+            rgba(255,130,190,.7)
+        );
+
+    animation:
+        giftFloat 2s infinite;
+}
+
+@keyframes giftFloat{
+
+    50%{
+        transform:
+            translateY(-7px);
+    }
+}
+
+.gift-label{
+
+    margin-top:4px;
 
     font-family:Arial,sans-serif;
 
     font-size:8px;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
-    opacity:.25;
+    opacity:.45;
+}
+
+
+/* =========================
+   SECRET
+========================= */
+
+#secret{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:200;
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    padding:25px;
+
+    background:
+        rgba(50,5,25,.78);
+
+    backdrop-filter:
+        blur(15px);
+}
+
+.secret-box{
+
+    max-width:400px;
+
+    padding:45px 30px;
+
+    border-radius:30px;
+
+    background:
+        rgba(255,150,195,.13);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    box-shadow:
+        0 30px 100px
+        rgba(0,0,0,.5);
+
+    animation:
+        reveal 1s ease;
+}
+
+@keyframes reveal{
+
+    from{
+        opacity:0;
+        transform:scale(.8);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
+}
+
+.secret-heart{
+    font-size:55px;
+}
+
+.secret-title{
+
+    margin-top:15px;
+
+    font-size:36px;
+
+    font-weight:normal;
+}
+
+.secret-name{
+
+    margin-top:20px;
+
+    font-size:22px;
+
+    color:#ffd3e3;
+}
+
+.close{
+
+    margin-top:28px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    opacity:.4;
+
+    cursor:pointer;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+    .photo{
+        width:100px;
+        height:135px;
+    }
+
+    .photo.one{
+        left:1%;
+        top:10%;
+    }
+
+    .photo.two{
+        right:1%;
+        top:13%;
+    }
+
+    .photo.three{
+        left:2%;
+        bottom:10%;
+    }
+
+    .photo.four{
+        right:2%;
+        bottom:12%;
+    }
+
+    .photo.five{
+        width:80px;
+        height:105px;
+        top:7%;
+    }
+
+    .content{
+        padding:20px;
+    }
+
+    .heart{
+        font-size:60px;
+    }
+
+    .be-mine{
+        font-size:24px;
+    }
+
 }
 
 </style>
@@ -609,19 +890,28 @@ h1{
 <body>
 
 
-<!-- SOFT LIGHT -->
+<!-- =========================
+     BACKGROUND
+========================= -->
 
-<div class="glow one"></div>
-<div class="glow two"></div>
+<div class="background">
+
+    <div class="light"></div>
+    <div class="light"></div>
+    <div class="light"></div>
+
+    <div class="stars"></div>
+
+</div>
 
 
 <!-- =========================
-     TAP TO ENTER
+     ENTER
 ========================= -->
 
 <div id="enter">
 
-    <div class="enter-box">
+    <div class="enter-content">
 
         <div class="enter-heart">
             ❤️
@@ -647,7 +937,9 @@ h1{
 </div>
 
 
-<!-- MUSIC -->
+<!-- =========================
+     MUSIC
+========================= -->
 
 <audio
     id="music"
@@ -663,117 +955,129 @@ h1{
 </audio>
 
 
-<div id="musicHint">
-    Tap anywhere ❤️ to start the music
-</div>
-
-
 <!-- =========================
-     WEBSITE
+     MAIN
 ========================= -->
 
 <main class="main">
 
-<div class="card">
+
+    <div class="center-glow"></div>
 
 
-    <div class="date">
-        8 • 8
+    <!-- FLOATING PHOTOS -->
+
+    <div class="photo one">
+        <img src="love1.jpg" alt="Love">
+    </div>
+
+    <div class="photo two">
+        <img src="love2.jpg" alt="Love">
+    </div>
+
+    <div class="photo three">
+        <img src="love3.jpg" alt="Love">
+    </div>
+
+    <div class="photo four">
+        <img src="love4.jpg" alt="Love">
+    </div>
+
+    <div class="photo five">
+        <img src="love5.jpg" alt="Love">
     </div>
 
 
-    <div class="big-heart">
-        ❤️
-    </div>
+    <!-- CENTER -->
 
+    <div class="content">
 
-    <h1>
-        Najwa
-    </h1>
+        <div class="date">
+            8 • 8
+        </div>
 
+        <div class="heart">
+            ❤️
+        </div>
 
-    <div class="be-mine">
-        Be Mine.
-    </div>
+        <h1>
+            Najwa
+        </h1>
 
+        <div class="be-mine">
+            Be Mine.
+        </div>
 
-    <!-- LOVE IMAGE -->
+        <div class="small-line">
+            JUST FOR YOU
+        </div>
 
-    <div class="love-image">
-
-        <img
-            src="love1.jpg"
-            alt="Love"
-        >
-
-    </div>
-
-
-    <div class="music-note">
-        🎵
     </div>
 
 
     <!-- GIFT -->
 
-    <div class="gift-area">
+    <div class="gift">
 
         <div
-            class="gift"
+            class="gift-icon"
             onclick="openGift()"
         >
             🎁
         </div>
 
         <div class="gift-label">
-            A LITTLE SURPRISE
-        </div>
-
-
-        <div
-            class="secret"
-            id="secret"
-        >
-
-            <div class="secret-title">
-                Be Mine. ❤️
-            </div>
-
-            <div class="secret-text">
-
-                I love you forever.
-
-            </div>
-
-            <div class="signature">
-                Naj ❤️
-            </div>
-
+            TAP
         </div>
 
     </div>
 
-
-    <div class="footer">
-        8 • 8
-    </div>
-
-
-</div>
 
 </main>
+
+
+<!-- =========================
+     SECRET
+========================= -->
+
+<div id="secret">
+
+    <div class="secret-box">
+
+        <div class="secret-heart">
+            ❤️
+        </div>
+
+        <div class="secret-title">
+            Be Mine.
+        </div>
+
+        <div class="secret-name">
+            Naj ❤️
+        </div>
+
+        <div
+            class="close"
+            onclick="closeGift()"
+        >
+            TAP TO CLOSE
+        </div>
+
+    </div>
+
+</div>
 
 
 <script>
 
 
 /* =========================
-   ENTER + MUSIC
+   ENTER WEBSITE
 ========================= */
 
 function enterLove(){
 
-    const enter =
+    const screen =
         document.getElementById(
             "enter"
         );
@@ -784,89 +1088,47 @@ function enterLove(){
         );
 
 
-    music.volume = 0.65;
+    music.volume=.65;
 
+
+    /*
+       Because she tapped the button,
+       iPhone allows the music to play.
+    */
 
     music.play()
     .catch(function(){});
 
 
-    enter.style.opacity="0";
-
+    screen.style.opacity="0";
 
     setTimeout(function(){
 
-        enter.style.display="none";
+        screen.style.visibility=
+            "hidden";
 
-    },1000);
-
-}
-
-
-/* =========================
-   AUTOPLAY ATTEMPT
-========================= */
-
-window.addEventListener(
-    "load",
-    function(){
-
-        const music =
-            document.getElementById(
-                "music"
-            );
-
-        music.volume=.65;
-
-        music.play()
-        .catch(function(){
-
-            document
-                .getElementById(
-                    "musicHint"
-                )
-                .classList
-                .add("show");
-
-        });
-
-    }
-);
+    },1200);
 
 
-/* =========================
-   FALLBACK MUSIC TAP
-========================= */
+    /*
+       Start a little stronger
+       floating effect after entry.
+    */
 
-document.addEventListener(
-    "click",
-    function startMusic(){
+    for(
+        let i=0;
+        i<15;
+        i++
+    ){
 
-        const music =
-            document.getElementById(
-                "music"
-            );
-
-        music.play()
-        .then(function(){
-
-            document
-                .getElementById(
-                    "musicHint"
-                )
-                .classList
-                .remove("show");
-
-        })
-        .catch(function(){});
-
-        document.removeEventListener(
-            "click",
-            startMusic
+        setTimeout(
+            createFloat,
+            i*100
         );
 
     }
-);
+
+}
 
 
 /* =========================
@@ -876,11 +1138,13 @@ document.addEventListener(
 function openGift(){
 
     document
-        .getElementById(
-            "secret"
-        )
-        .style.display="block";
+        .getElementById("secret")
+        .style.display="flex";
 
+
+    /*
+       Romantic burst.
+    */
 
     for(
         let i=0;
@@ -890,7 +1154,7 @@ function openGift(){
 
         setTimeout(
             createFloat,
-            i*70
+            i*60
         );
 
     }
@@ -898,13 +1162,13 @@ function openGift(){
 
     for(
         let i=0;
-        i<7;
+        i<8;
         i++
     ){
 
         setTimeout(
             createLoveText,
-            i*180
+            i*150
         );
 
     }
@@ -912,8 +1176,17 @@ function openGift(){
 }
 
 
+function closeGift(){
+
+    document
+        .getElementById("secret")
+        .style.display="none";
+
+}
+
+
 /* =========================
-   FLOATING HEARTS + FLOWERS
+   FLOATING EMOJIS
 ========================= */
 
 function createFloat(){
@@ -957,7 +1230,7 @@ function createFloat(){
     item.style.fontSize=
         (
             14+
-            Math.random()*23
+            Math.random()*25
         )+"px";
 
 
@@ -980,18 +1253,22 @@ function createFloat(){
     item.style.animationDuration=
         (
             6+
-            Math.random()*6
+            Math.random()*7
         )+"s";
 
 
-    document.body.appendChild(item);
+    document.body.appendChild(
+        item
+    );
 
 
     setTimeout(
         function(){
+
             item.remove();
+
         },
-        14000
+        15000
     );
 
 }
@@ -1028,33 +1305,30 @@ function createLoveText(){
     );
 
 
-    text.style.animationDuration=
-        (
-            8+
-            Math.random()*5
-        )+"s";
-
-
-    document.body.appendChild(text);
+    document.body.appendChild(
+        text
+    );
 
 
     setTimeout(
         function(){
+
             text.remove();
+
         },
-        14000
+        10000
     );
 
 }
 
 
 /* =========================
-   NORMAL FLOW
+   CONTINUOUS EFFECTS
 ========================= */
 
 setInterval(
     createFloat,
-    700
+    850
 );
 
 
@@ -1062,7 +1336,7 @@ setInterval(
     function(){
 
         if(
-            Math.random()<.4
+            Math.random()<.5
         ){
 
             createLoveText();
@@ -1070,7 +1344,7 @@ setInterval(
         }
 
     },
-    2500
+    3000
 );
 
 </script>
