@@ -6,10 +6,6 @@
 
 <title>Najwa ❤️</title>
 
-<meta property="og:title" content="Najwa ❤️">
-<meta property="og:description" content="8 • 8 — just for you.">
-<meta property="og:type" content="website">
-
 <style>
 
 *{
@@ -23,425 +19,311 @@ html{
 }
 
 body{
-    background:#050006;
+    min-height:100vh;
+    overflow-x:hidden;
     color:white;
     font-family:Georgia,serif;
-    overflow-x:hidden;
-}
-
-/* =========================
-   DREAMY BACKGROUND
-========================= */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-5;
 
     background:
         radial-gradient(
-            circle at 15% 20%,
-            #6b174f,
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 85% 75%,
-            #27135f,
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 50% 50%,
-            #300b28,
-            transparent 35%
-        ),
-        linear-gradient(
-            160deg,
-            #020005,
-            #17000f,
-            #050008
+            circle at 50% 25%,
+            #ffb6d5 0%,
+            #f56f9f 25%,
+            #c83f72 50%,
+            #5a1635 78%,
+            #17030d 100%
         );
 }
 
-.stars{
+
+/* SOFT GLOW */
+
+.glow{
+    position:fixed;
+    width:420px;
+    height:420px;
+    border-radius:50%;
+    background:rgba(255,190,220,.25);
+    filter:blur(100px);
+    pointer-events:none;
+    z-index:0;
+}
+
+.glow.one{
+    top:-200px;
+    left:-180px;
+}
+
+.glow.two{
+    bottom:-220px;
+    right:-180px;
+}
+
+
+/* =========================
+   ENTER SCREEN
+========================= */
+
+#enter{
     position:fixed;
     inset:0;
-    z-index:-4;
-
-    background-image:
-        radial-gradient(#fff 1px,transparent 1px),
-        radial-gradient(#fff 1px,transparent 1px),
-        radial-gradient(#ffb6d9 1px,transparent 1px);
-
-    background-size:
-        80px 80px,
-        140px 140px,
-        200px 200px;
-
-    background-position:
-        10px 20px,
-        40px 60px,
-        100px 30px;
-
-    opacity:.35;
-
-    animation:drift 40s linear infinite;
-}
-
-@keyframes drift{
-    to{
-        transform:translateY(-100px);
-    }
-}
-
-
-/* =========================
-   MUSIC FALLBACK
-========================= */
-
-#musicHint{
-    position:fixed;
-    left:50%;
-    bottom:25px;
-    transform:translateX(-50%);
-
-    z-index:100;
-
-    padding:12px 20px;
-
-    border-radius:30px;
-
-    background:rgba(20,0,15,.8);
-
-    border:1px solid rgba(255,255,255,.15);
-
-    backdrop-filter:blur(12px);
-
-    font-family:Arial,sans-serif;
-
-    font-size:11px;
-
-    letter-spacing:1px;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:opacity .5s;
-
-    white-space:nowrap;
-}
-
-#musicHint.show{
-    opacity:.8;
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-    min-height:100vh;
+    z-index:9999;
 
     display:flex;
-    align-items:center;
     justify-content:center;
-
+    align-items:center;
     text-align:center;
 
+    background:
+        radial-gradient(
+            circle at 50% 40%,
+            #ffb1d0,
+            #d94c7d 48%,
+            #4d102c 100%
+        );
+
+    transition:opacity 1s ease;
+}
+
+.enter-box{
     padding:30px;
 }
 
-.hero-content{
-    animation:appear 2s ease;
+.enter-heart{
+    font-size:78px;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            #ffb7d5
+        );
+
+    animation:heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat{
+    50%{
+        transform:scale(1.15);
+    }
+}
+
+.enter-title{
+    margin-top:22px;
+    font-size:38px;
+    font-weight:normal;
+}
+
+.enter-date{
+    margin-top:12px;
+
+    font-family:Arial,sans-serif;
+    font-size:10px;
+    letter-spacing:6px;
+
+    opacity:.6;
+}
+
+.enter-button{
+    margin-top:32px;
+
+    padding:15px 30px;
+
+    border-radius:40px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.35);
+
+    background:
+        rgba(255,255,255,.12);
+
+    color:white;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+    backdrop-filter:blur(12px);
+
+    transition:.3s;
+}
+
+.enter-button:hover{
+    transform:scale(1.05);
+}
+
+
+/* =========================
+   MAIN
+========================= */
+
+.main{
+    position:relative;
+    z-index:2;
+
+    min-height:100vh;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    padding:25px 18px;
+}
+
+.card{
+    width:100%;
+    max-width:500px;
+
+    text-align:center;
+
+    padding:45px 25px;
+
+    border-radius:35px;
+
+    background:
+        rgba(255,255,255,.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,.25);
+
+    backdrop-filter:blur(20px);
+
+    box-shadow:
+        0 30px 90px
+        rgba(60,0,30,.45);
+
+    animation:appear 1.5s ease;
 }
 
 @keyframes appear{
-
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(25px) scale(.97);
     }
 
     to{
         opacity:1;
-        transform:translateY(0);
+        transform:translateY(0) scale(1);
     }
-
 }
+
+
+/* =========================
+   DATE
+========================= */
 
 .date{
     font-family:Arial,sans-serif;
 
-    font-size:12px;
+    font-size:10px;
 
     letter-spacing:7px;
 
     opacity:.55;
 
-    margin-bottom:35px;
+    margin-bottom:22px;
 }
 
-.heart{
-    font-size:75px;
+
+/* =========================
+   HEART
+========================= */
+
+.big-heart{
+    font-size:70px;
 
     filter:
         drop-shadow(
             0 0 30px
-            #ff2f8b
+            rgba(255,80,150,.8)
         );
 
-    animation:beat 1.5s infinite;
+    animation:heartbeat 1.6s infinite;
 }
 
-@keyframes beat{
 
-    50%{
-        transform:scale(1.16);
-    }
-
-}
+/* =========================
+   MAIN TEXT
+========================= */
 
 h1{
+    margin-top:15px;
+
     font-size:
         clamp(
-            60px,
-            17vw,
-            100px
+            55px,
+            16vw,
+            88px
         );
 
     font-weight:normal;
-
-    margin:12px 0;
 
     background:
         linear-gradient(
             90deg,
             #fff,
-            #ff9dcb,
+            #ffe0eb,
             #fff
         );
 
     -webkit-background-clip:text;
-
     -webkit-text-fill-color:transparent;
 }
 
-.tagline{
-    font-family:Arial,sans-serif;
+.be-mine{
+    margin-top:10px;
 
-    font-size:14px;
+    font-size:27px;
 
-    letter-spacing:2px;
+    font-style:italic;
 
-    opacity:.7;
-}
+    color:#fff;
 
-.scroll{
-    margin-top:70px;
+    letter-spacing:1px;
 
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:4px;
-
-    opacity:.4;
-
-    animation:scrollPulse 2s infinite;
-}
-
-@keyframes scrollPulse{
-
-    50%{
-        opacity:.8;
-        transform:translateY(5px);
-    }
-
+    text-shadow:
+        0 0 20px
+        rgba(255,150,190,.7);
 }
 
 
 /* =========================
-   SECTIONS
+   LOVE IMAGE
 ========================= */
 
-.section{
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    padding:60px 20px;
-}
-
-.box{
+.love-image{
     width:100%;
 
-    max-width:500px;
+    height:220px;
 
-    text-align:center;
-}
-
-
-/* =========================
-   SHORT MESSAGE
-========================= */
-
-.message{
-    font-size:25px;
-
-    line-height:1.7;
-
-    font-weight:normal;
-}
-
-.message span{
-    color:#ff9dcc;
-}
-
-
-/* =========================
-   LOVE PHOTOS
-========================= */
-
-.photo-title{
-    font-size:30px;
-
-    font-weight:normal;
-
-    margin-bottom:30px;
-}
-
-.photos{
-    display:flex;
-
-    flex-direction:column;
-
-    gap:25px;
-}
-
-.photo{
-    width:100%;
-
-    height:420px;
+    margin-top:32px;
 
     border-radius:25px;
 
     overflow:hidden;
 
-    position:relative;
-
-    box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.6);
-
     border:
         1px solid
-        rgba(255,255,255,.15);
+        rgba(255,255,255,.2);
 
-    transform:rotate(-1deg);
-
-    transition:
-        transform .7s ease,
-        opacity 1s ease;
-
-    opacity:0;
-
-    animation:photoAppear 1.5s forwards;
+    box-shadow:
+        0 20px 50px
+        rgba(0,0,0,.35);
 }
 
-.photo:nth-child(2){
-    transform:rotate(1deg);
-
-    animation-delay:.3s;
-}
-
-.photo:nth-child(3){
-    transform:rotate(-1deg);
-
-    animation-delay:.6s;
-}
-
-@keyframes photoAppear{
-
-    to{
-        opacity:1;
-    }
-
-}
-
-.photo:hover{
-    transform:
-        scale(1.02)
-        rotate(0);
-}
-
-.photo img{
+.love-image img{
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-}
-
-.photo::after{
-    content:"";
-
-    position:absolute;
-
-    inset:0;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.4),
-            transparent 50%
-        );
-
-    pointer-events:none;
 }
 
 
 /* =========================
-   SURPRISE
+   MUSIC
 ========================= */
 
-.surprise{
-    text-align:center;
-}
-
-.gift{
-    font-size:75px;
-
-    cursor:pointer;
-
-    transition:.4s;
-
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(255,100,170,.5)
-        );
-
-    animation:giftFloat 2s ease-in-out infinite;
-}
-
-@keyframes giftFloat{
-
-    50%{
-        transform:translateY(-8px);
-    }
-
-}
-
-.gift:hover{
-    transform:scale(1.12);
-}
-
-.tap{
+.music-note{
     margin-top:18px;
 
     font-family:Arial,sans-serif;
@@ -453,115 +335,165 @@ h1{
     opacity:.45;
 }
 
-.hidden{
+
+/* =========================
+   GIFT
+========================= */
+
+.gift-area{
+    margin-top:32px;
+}
+
+.gift{
+    display:inline-block;
+
+    font-size:62px;
+
+    cursor:pointer;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(255,150,200,.7)
+        );
+
+    animation:giftFloat 2s infinite;
+
+    transition:.3s;
+}
+
+.gift:hover{
+    transform:scale(1.1);
+}
+
+@keyframesgiftFloat{
+    50%{
+        transform:translateY(-7px);
+    }
+}
+
+.gift-label{
+    margin-top:8px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:9px;
+
+    letter-spacing:3px;
+
+    opacity:.4;
+}
+
+
+/* =========================
+   SURPRISE
+========================= */
+
+.secret{
     display:none;
 
-    margin-top:40px;
+    margin-top:30px;
 
-    animation:
-        reveal 1.4s ease;
+    animation:reveal 1.2s ease;
 }
 
 @keyframes reveal{
-
     from{
         opacity:0;
-
-        transform:
-            scale(.85)
-            translateY(20px);
+        transform:scale(.85);
     }
 
     to{
         opacity:1;
-
-        transform:
-            scale(1)
-            translateY(0);
+        transform:scale(1);
     }
-
 }
 
-.hidden h2{
-    font-size:38px;
+.secret-title{
+    font-size:30px;
 
     font-weight:normal;
 
-    margin-bottom:25px;
+    color:white;
 }
 
-.hidden p{
-    font-size:20px;
-
-    line-height:1.9;
-
-    color:#ffd8e8;
-}
-
-.signature{
-    margin-top:25px;
-
-    font-size:22px;
-
-    color:#ff9dcc;
-}
-
-
-/* =========================
-   FINAL
-========================= */
-
-.final{
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-}
-
-.final h2{
-    font-size:42px;
-
-    font-weight:normal;
-}
-
-.final p{
-    margin-top:20px;
+.secret-text{
+    margin-top:14px;
 
     font-size:18px;
 
-    line-height:1.8;
+    line-height:1.7;
 
-    color:#ffd9e8;
+    color:#ffe4ee;
 }
 
-.final-date{
-    margin-top:35px;
+.signature{
+    margin-top:15px;
 
-    color:#ff9dcc;
+    font-size:22px;
 
-    font-family:Arial,sans-serif;
-
-    letter-spacing:6px;
-
-    font-size:14px;
+    color:#fff;
 }
 
 
 /* =========================
-   SCROLLING LOVE EMOJIS
+   MUSIC FALLBACK
 ========================= */
 
-.floating{
+#musicHint{
     position:fixed;
 
-    bottom:-40px;
+    bottom:22px;
 
-    z-index:20;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    z-index:100;
+
+    padding:11px 18px;
+
+    border-radius:30px;
+
+    background:
+        rgba(50,0,25,.75);
+
+    border:
+        1px solid
+        rgba(255,255,255,.2);
+
+    backdrop-filter:blur(12px);
+
+    font-family:Arial,sans-serif;
+
+    font-size:10px;
+
+    letter-spacing:1px;
+
+    opacity:0;
+
+    pointer-events:none;
+
+    transition:.5s;
+
+    white-space:nowrap;
+}
+
+#musicHint.show{
+    opacity:.8;
+}
+
+
+/* =========================
+   FLOATING HEARTS + FLOWERS
+========================= */
+
+.float{
+    position:fixed;
+
+    bottom:-50px;
+
+    z-index:10;
 
     pointer-events:none;
 
@@ -569,6 +501,10 @@ h1{
         floatUp
         linear
         forwards;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,130,190,.9);
 }
 
 @keyframes floatUp{
@@ -578,11 +514,12 @@ h1{
 
         transform:
             translateY(0)
+            translateX(0)
             rotate(0deg);
     }
 
     15%{
-        opacity:.65;
+        opacity:.9;
     }
 
     100%{
@@ -590,9 +527,79 @@ h1{
 
         transform:
             translateY(-110vh)
-            rotate(180deg);
+            translateX(var(--move))
+            rotate(var(--rotate));
+    }
+}
+
+
+/* =========================
+   FLOATING I LOVE YOU
+========================= */
+
+.love-text{
+    position:fixed;
+
+    bottom:-40px;
+
+    z-index:9;
+
+    pointer-events:none;
+
+    color:#ffe1ec;
+
+    font-family:Georgia,serif;
+
+    font-size:16px;
+
+    font-style:italic;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,130,190,.9);
+
+    animation:
+        textUp
+        linear
+        forwards;
+}
+
+@keyframes textUp{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateY(0)
+            translateX(0);
     }
 
+    15%{
+        opacity:.7;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translateY(-110vh)
+            translateX(var(--move));
+    }
+}
+
+
+/* FOOTER */
+
+.footer{
+    margin-top:28px;
+
+    font-family:Arial,sans-serif;
+
+    font-size:8px;
+
+    letter-spacing:4px;
+
+    opacity:.25;
 }
 
 </style>
@@ -602,9 +609,42 @@ h1{
 <body>
 
 
-<div class="background"></div>
+<!-- SOFT LIGHT -->
 
-<div class="stars"></div>
+<div class="glow one"></div>
+<div class="glow two"></div>
+
+
+<!-- =========================
+     TAP TO ENTER
+========================= -->
+
+<div id="enter">
+
+    <div class="enter-box">
+
+        <div class="enter-heart">
+            ❤️
+        </div>
+
+        <div class="enter-title">
+            For Najwa
+        </div>
+
+        <div class="enter-date">
+            8 • 8
+        </div>
+
+        <button
+            class="enter-button"
+            onclick="enterLove()"
+        >
+            Tap to enter ❤️
+        </button>
+
+    </div>
+
+</div>
 
 
 <!-- MUSIC -->
@@ -629,233 +669,164 @@ h1{
 
 
 <!-- =========================
-     FIRST SCREEN
+     WEBSITE
 ========================= -->
 
-<section class="hero">
+<main class="main">
 
-<div class="hero-content">
-
-<div class="date">
-8 • 8
-</div>
-
-<div class="heart">
-❤️
-</div>
-
-<h1>
-Najwa
-</h1>
-
-<div class="tagline">
-I chose you, in every little way.
-</div>
-
-<div class="scroll">
-SCROLL ↓
-</div>
-
-</div>
-
-</section>
+<div class="card">
 
 
-<!-- =========================
-     SIMPLE MESSAGE
-========================= -->
-
-<section class="section">
-
-<div class="box">
-
-<p class="message">
-
-Some people come into your life
-and quietly become
-
-<span>
-your favorite thought.
-</span>
-
-</p>
-
-</div>
-
-</section>
+    <div class="date">
+        8 • 8
+    </div>
 
 
-<!-- =========================
-     LOVE IMAGES
-========================= -->
-
-<section class="section">
-
-<div class="box">
-
-<h2 class="photo-title">
-A little love story
-</h2>
-
-<div class="photos">
-
-<div class="photo">
-
-<img
-src="love1.jpg"
-alt="Love"
->
-
-</div>
+    <div class="big-heart">
+        ❤️
+    </div>
 
 
-<div class="photo">
-
-<img
-src="love2.jpg"
-alt="Love"
->
-
-</div>
+    <h1>
+        Najwa
+    </h1>
 
 
-<div class="photo">
+    <div class="be-mine">
+        Be Mine.
+    </div>
 
-<img
-src="love3.jpg"
-alt="Love"
->
+
+    <!-- LOVE IMAGE -->
+
+    <div class="love-image">
+
+        <img
+            src="love1.jpg"
+            alt="Love"
+        >
+
+    </div>
+
+
+    <div class="music-note">
+        🎵
+    </div>
+
+
+    <!-- GIFT -->
+
+    <div class="gift-area">
+
+        <div
+            class="gift"
+            onclick="openGift()"
+        >
+            🎁
+        </div>
+
+        <div class="gift-label">
+            A LITTLE SURPRISE
+        </div>
+
+
+        <div
+            class="secret"
+            id="secret"
+        >
+
+            <div class="secret-title">
+                Be Mine. ❤️
+            </div>
+
+            <div class="secret-text">
+
+                I love you forever.
+
+            </div>
+
+            <div class="signature">
+                Naj ❤️
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer">
+        8 • 8
+    </div>
+
 
 </div>
 
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     SURPRISE
-========================= -->
-
-<section class="section">
-
-<div class="box surprise">
-
-<div
-    class="gift"
-    onclick="reveal()"
->
-🎁
-</div>
-
-<div class="tap">
-TAP THE GIFT
-</div>
-
-
-<div
-    class="hidden"
-    id="secret"
->
-
-<h2>
-Najwa ❤️
-</h2>
-
-<p>
-
-I love you forever.
-
-<br><br>
-
-I chose my heart...
-
-</p>
-
-<div class="signature">
-Naj ❤️
-</div>
-
-</div>
-
-</div>
-
-</section>
-
-
-<!-- =========================
-     FINAL
-========================= -->
-
-<section class="final">
-
-<div>
-
-<div class="heart">
-❤️
-</div>
-
-<h2>
-Until forever.
-</h2>
-
-<p>
-Some feelings don't need many words.
-</p>
-
-<div class="final-date">
-8 • 8
-</div>
-
-</div>
-
-</section>
+</main>
 
 
 <script>
 
 
 /* =========================
-   START MUSIC
+   ENTER + MUSIC
 ========================= */
 
-const music =
-    document.getElementById("music");
+function enterLove(){
 
-const hint =
-    document.getElementById("musicHint");
+    const enter =
+        document.getElementById(
+            "enter"
+        );
+
+    const music =
+        document.getElementById(
+            "music"
+        );
 
 
-music.volume = 0.65;
+    music.volume = 0.65;
 
 
-/*
-   Try to start automatically.
-*/
+    music.play()
+    .catch(function(){});
+
+
+    enter.style.opacity="0";
+
+
+    setTimeout(function(){
+
+        enter.style.display="none";
+
+    },1000);
+
+}
+
+
+/* =========================
+   AUTOPLAY ATTEMPT
+========================= */
 
 window.addEventListener(
     "load",
     function(){
 
+        const music =
+            document.getElementById(
+                "music"
+            );
+
+        music.volume=.65;
+
         music.play()
-        .then(function(){
-
-            /*
-               Autoplay worked.
-               Nothing needs to be shown.
-            */
-
-        })
         .catch(function(){
 
-            /*
-               iPhone/Safari may block
-               autoplay with sound.
-            */
-
-            hint.classList.add("show");
+            document
+                .getElementById(
+                    "musicHint"
+                )
+                .classList
+                .add("show");
 
         });
 
@@ -863,19 +834,28 @@ window.addEventListener(
 );
 
 
-/*
-   If the browser blocked autoplay,
-   the first tap anywhere starts it.
-*/
+/* =========================
+   FALLBACK MUSIC TAP
+========================= */
 
 document.addEventListener(
     "click",
     function startMusic(){
 
+        const music =
+            document.getElementById(
+                "music"
+            );
+
         music.play()
         .then(function(){
 
-            hint.classList.remove("show");
+            document
+                .getElementById(
+                    "musicHint"
+                )
+                .classList
+                .remove("show");
 
         })
         .catch(function(){});
@@ -890,34 +870,41 @@ document.addEventListener(
 
 
 /* =========================
-   GIFT SURPRISE
+   GIFT
 ========================= */
 
-function reveal(){
+function openGift(){
 
-    const secret =
-        document.getElementById(
+    document
+        .getElementById(
             "secret"
-        );
+        )
+        .style.display="block";
 
-    secret.style.display =
-        "block";
-
-
-    /*
-       Extra hearts and flowers
-       only when the surprise opens.
-    */
 
     for(
         let i=0;
-        i<18;
+        i<35;
         i++
     ){
 
         setTimeout(
-            createFloating,
-            i*100
+            createFloat,
+            i*70
+        );
+
+    }
+
+
+    for(
+        let i=0;
+        i<7;
+        i++
+    ){
+
+        setTimeout(
+            createLoveText,
+            i*180
         );
 
     }
@@ -926,26 +913,20 @@ function reveal(){
 
 
 /* =========================
-   FLOATING EMOJIS
+   FLOATING HEARTS + FLOWERS
 ========================= */
 
-function createFloating(){
+function createFloat(){
 
     const item =
         document.createElement(
             "div"
         );
 
-    item.className =
-        "floating";
+    item.className="float";
 
 
-    /*
-       Only the soft romantic
-       emojis you wanted.
-    */
-
-    const symbols = [
+    const emojis=[
 
         "❤️",
         "💗",
@@ -955,60 +936,60 @@ function createFloating(){
         "💞",
         "💓",
         "💝",
-        "🌹",
-        "🌸",
-        "🌺",
-        "🌻",
-        "🌼",
-        "✨",
-        "♡"
+        "🌸"
 
     ];
 
 
-    item.innerHTML =
-        symbols[
+    item.innerHTML=
+        emojis[
             Math.floor(
                 Math.random()
-                * symbols.length
+                * emojis.length
             )
         ];
 
 
-    item.style.left =
-        Math.random()
-        *100
-        +"vw";
+    item.style.left=
+        Math.random()*100+"vw";
 
 
-    item.style.fontSize =
+    item.style.fontSize=
         (
-            13
-            +
-            Math.random()*20
-        )
-        +"px";
+            14+
+            Math.random()*23
+        )+"px";
 
 
-    item.style.animationDuration =
+    item.style.setProperty(
+        "--move",
         (
-            6
-            +
-            Math.random()*7
-        )
-        +"s";
-
-
-    document.body.appendChild(
-        item
+            Math.random()*180-90
+        )+"px"
     );
+
+
+    item.style.setProperty(
+        "--rotate",
+        (
+            Math.random()*360
+        )+"deg"
+    );
+
+
+    item.style.animationDuration=
+        (
+            6+
+            Math.random()*6
+        )+"s";
+
+
+    document.body.appendChild(item);
 
 
     setTimeout(
         function(){
-
             item.remove();
-
         },
         14000
     );
@@ -1016,18 +997,83 @@ function createFloating(){
 }
 
 
-/*
-   Gentle amount of floating
-   emojis while scrolling.
-*/
+/* =========================
+   FLOATING WORDS
+========================= */
+
+function createLoveText(){
+
+    const text =
+        document.createElement(
+            "div"
+        );
+
+    text.className=
+        "love-text";
+
+
+    text.innerHTML=
+        "I love you ❤️";
+
+
+    text.style.left=
+        Math.random()*80+"vw";
+
+
+    text.style.setProperty(
+        "--move",
+        (
+            Math.random()*160-80
+        )+"px"
+    );
+
+
+    text.style.animationDuration=
+        (
+            8+
+            Math.random()*5
+        )+"s";
+
+
+    document.body.appendChild(text);
+
+
+    setTimeout(
+        function(){
+            text.remove();
+        },
+        14000
+    );
+
+}
+
+
+/* =========================
+   NORMAL FLOW
+========================= */
 
 setInterval(
-    createFloating,
-    1500
+    createFloat,
+    700
+);
+
+
+setInterval(
+    function(){
+
+        if(
+            Math.random()<.4
+        ){
+
+            createLoveText();
+
+        }
+
+    },
+    2500
 );
 
 </script>
-
 
 </body>
 </html>
