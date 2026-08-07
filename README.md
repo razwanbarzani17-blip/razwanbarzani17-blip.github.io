@@ -1,294 +1,681 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Najwa ❤️ | 8-8</title>
+<title>Najwa ❤️ | 8•8</title>
 
-    <!-- Instagram / WhatsApp link preview -->
-    <meta property="og:title" content="Najwa ❤️">
-    <meta property="og:description" content="A little piece of my heart, made just for you.">
-    <meta property="og:type" content="website">
+<meta property="og:title" content="Najwa ❤️">
+<meta property="og:description" content="Some feelings deserve their own little universe.">
+<meta property="og:type" content="website">
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            margin: 0;
-            min-height: 100vh;
-            overflow-x: hidden;
-            font-family: Georgia, "Times New Roman", serif;
-            color: white;
-            background:
-                radial-gradient(circle at 20% 20%, rgba(255, 105, 180, 0.25), transparent 30%),
-                radial-gradient(circle at 80% 80%, rgba(150, 70, 255, 0.25), transparent 30%),
-                linear-gradient(135deg, #12000d, #2b001c, #100014);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 30px 15px;
-            position: relative;
-        }
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        body::before {
-            content: "";
-            position: fixed;
-            inset: 0;
-            background-image:
-                radial-gradient(white 1px, transparent 1px),
-                radial-gradient(white 1px, transparent 1px);
-            background-size: 70px 70px, 110px 110px;
-            background-position: 0 0, 40px 50px;
-            opacity: 0.15;
-            pointer-events: none;
-        }
+html{
+    scroll-behavior:smooth;
+}
 
-        .card {
-            width: 100%;
-            max-width: 500px;
-            padding: 45px 28px;
-            text-align: center;
-            border-radius: 30px;
-            background: rgba(255, 255, 255, 0.08);
-            border: 1px solid rgba(255, 255, 255, 0.18);
-            backdrop-filter: blur(15px);
-            box-shadow:
-                0 25px 80px rgba(0, 0, 0, 0.5),
-                0 0 60px rgba(255, 70, 150, 0.15);
-            position: relative;
-            z-index: 2;
-        }
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:#05000a;
+    color:white;
+    overflow-x:hidden;
+}
 
-        .date {
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            letter-spacing: 5px;
-            text-transform: uppercase;
-            opacity: 0.7;
-            margin-bottom: 20px;
-        }
+/* NIGHT SKY */
 
-        .heart {
-            font-size: 65px;
-            animation: heartbeat 1.5s infinite;
-            filter: drop-shadow(0 0 20px rgba(255, 60, 130, 0.8));
-        }
+.sky{
+    position:fixed;
+    inset:0;
+    z-index:-5;
+    background:
+    radial-gradient(circle at 20% 20%,#4b123e 0%,transparent 30%),
+    radial-gradient(circle at 80% 70%,#24105c 0%,transparent 35%),
+    linear-gradient(180deg,#030006,#12000f,#050008);
+}
 
-        @keyframes heartbeat {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.15);
-            }
-        }
+/* STARS */
 
-        h1 {
-            font-size: clamp(45px, 13vw, 75px);
-            margin: 10px 0;
-            font-weight: normal;
-            background: linear-gradient(90deg, #fff, #ffb6d9, #fff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-shadow: 0 0 25px rgba(255, 150, 200, 0.3);
-        }
+.stars{
+    position:fixed;
+    inset:0;
+    z-index:-4;
+    background-image:
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(white 1px,transparent 1px),
+    radial-gradient(#ffb6d9 1px,transparent 1px);
+    background-size:90px 90px,130px 130px,180px 180px;
+    background-position:10px 20px,50px 70px,30px 100px;
+    opacity:.45;
+    animation:starsMove 30s linear infinite;
+}
 
-        .subtitle {
-            font-family: Arial, sans-serif;
-            font-size: 16px;
-            letter-spacing: 2px;
-            opacity: 0.8;
-            margin-bottom: 35px;
-        }
+@keyframes starsMove{
+    from{transform:translateY(0);}
+    to{transform:translateY(-100px);}
+}
 
-        .message {
-            font-size: 20px;
-            line-height: 1.8;
-            color: #ffe9f3;
-            margin: 0 auto 25px;
-        }
+/* SECTIONS */
 
-        .quote {
-            font-style: italic;
-            font-size: 17px;
-            line-height: 1.7;
-            color: #ffd0e4;
-            margin: 25px 0;
-        }
+section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:60px 20px;
+    position:relative;
+}
 
-        .divider {
-            width: 80px;
-            height: 1px;
-            background: rgba(255,255,255,0.5);
-            margin: 30px auto;
-        }
+.container{
+    width:100%;
+    max-width:520px;
+    text-align:center;
+}
 
-        .love-button {
-            border: 1px solid rgba(255,255,255,0.25);
-            background: rgba(255,255,255,0.1);
-            color: white;
-            padding: 14px 25px;
-            border-radius: 50px;
-            font-size: 15px;
-            cursor: pointer;
-            transition: 0.3s;
-            margin-top: 10px;
-        }
+/* HERO */
 
-        .love-button:hover {
-            background: rgba(255, 100, 170, 0.25);
-            transform: scale(1.05);
-        }
+.hero{
+    min-height:100vh;
+}
 
-        #secret {
-            display: none;
-            margin-top: 25px;
-            font-size: 18px;
-            line-height: 1.7;
-            color: #ffd9e8;
-            animation: appear 1s ease;
-        }
+.small-date{
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    letter-spacing:6px;
+    opacity:.65;
+    margin-bottom:30px;
+}
 
-        @keyframes appear {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
+.big-heart{
+    font-size:80px;
+    animation:heartbeat 1.5s infinite;
+    filter:drop-shadow(0 0 30px #ff3b8d);
+}
 
-        .music {
-            margin-top: 25px;
-            font-family: Arial, sans-serif;
-            font-size: 13px;
-            opacity: 0.65;
-        }
+@keyframes heartbeat{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.18);}
+}
 
-        .floating-heart {
-            position: fixed;
-            bottom: -30px;
-            font-size: 20px;
-            opacity: 0.6;
-            animation: floatUp linear forwards;
-            pointer-events: none;
-            z-index: 1;
-        }
+h1{
+    font-size:clamp(55px,15vw,90px);
+    font-weight:normal;
+    margin:15px 0;
+    background:linear-gradient(90deg,#fff,#ff9acb,#fff);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
 
-        @keyframes floatUp {
-            from {
-                transform: translateY(0) rotate(0deg);
-                opacity: 0;
-            }
-            15% {
-                opacity: 0.7;
-            }
-            to {
-                transform: translateY(-110vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
+.hero-sub{
+    font-family:Arial,sans-serif;
+    letter-spacing:4px;
+    font-size:14px;
+    opacity:.7;
+}
 
-        .footer {
-            margin-top: 30px;
-            font-family: Arial, sans-serif;
-            font-size: 12px;
-            opacity: 0.45;
-        }
-    </style>
+.scroll{
+    position:absolute;
+    bottom:30px;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:3px;
+    opacity:.5;
+}
+
+/* GLASS CARD */
+
+.card{
+    background:rgba(255,255,255,.07);
+    border:1px solid rgba(255,255,255,.15);
+    border-radius:30px;
+    padding:38px 28px;
+    backdrop-filter:blur(15px);
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.5),
+    0 0 50px rgba(255,60,150,.08);
+}
+
+/* LETTER */
+
+.envelope{
+    font-size:55px;
+    margin-bottom:15px;
+}
+
+h2{
+    font-size:36px;
+    font-weight:normal;
+    margin-bottom:25px;
+}
+
+.text{
+    font-size:18px;
+    line-height:1.9;
+    color:#ffe6f1;
+}
+
+.signature{
+    margin-top:30px;
+    font-size:20px;
+    font-style:italic;
+    color:#ffb8d6;
+}
+
+/* BUTTON */
+
+button{
+    border:1px solid rgba(255,255,255,.25);
+    background:rgba(255,255,255,.08);
+    color:white;
+    padding:14px 24px;
+    border-radius:50px;
+    font-size:14px;
+    cursor:pointer;
+    transition:.3s;
+    margin-top:25px;
+}
+
+button:hover{
+    transform:scale(1.05);
+    background:rgba(255,70,150,.2);
+}
+
+/* SECRET */
+
+.secret{
+    display:none;
+    margin-top:25px;
+    animation:fade .8s ease;
+}
+
+@keyframes fade{
+    from{opacity:0;transform:translateY(15px);}
+    to{opacity:1;transform:translateY(0);}
+}
+
+/* PHOTO SECTION */
+
+.photos{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:25px;
+}
+
+.photo{
+    height:180px;
+    border-radius:20px;
+    background:
+    linear-gradient(135deg,rgba(255,90,160,.2),rgba(80,40,150,.3));
+    border:1px solid rgba(255,255,255,.12);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-family:Arial,sans-serif;
+    font-size:12px;
+    opacity:.7;
+    overflow:hidden;
+}
+
+.photo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+/* REASONS */
+
+.reason{
+    padding:18px 0;
+    border-bottom:1px solid rgba(255,255,255,.1);
+    font-size:18px;
+}
+
+.reason:last-child{
+    border:none;
+}
+
+/* MUSIC */
+
+.music-box{
+    margin-top:25px;
+}
+
+audio{
+    width:100%;
+    margin-top:15px;
+}
+
+/* FINAL */
+
+.final{
+    text-align:center;
+}
+
+.final-heart{
+    font-size:65px;
+    margin-bottom:25px;
+}
+
+.final h2{
+    font-size:40px;
+}
+
+.final p{
+    font-size:18px;
+    line-height:1.8;
+    color:#ffd9e8;
+}
+
+.date-big{
+    margin-top:35px;
+    font-size:30px;
+    color:#ff9dca;
+    letter-spacing:5px;
+}
+
+/* FLOATING HEARTS */
+
+.floating{
+    position:fixed;
+    bottom:-40px;
+    pointer-events:none;
+    z-index:10;
+    animation:floatUp linear forwards;
+}
+
+@keyframes floatUp{
+    from{
+        transform:translateY(0) rotate(0);
+        opacity:0;
+    }
+    15%{opacity:.8;}
+    to{
+        transform:translateY(-110vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+/* SHOOTING STAR */
+
+.shooting{
+    position:fixed;
+    width:100px;
+    height:2px;
+    background:linear-gradient(90deg,transparent,#fff);
+    transform:rotate(-35deg);
+    animation:shoot 5s linear infinite;
+    opacity:0;
+}
+
+@keyframes shoot{
+    0%{
+        left:100%;
+        top:10%;
+        opacity:0;
+    }
+    5%{opacity:1;}
+    15%{
+        left:70%;
+        top:30%;
+        opacity:0;
+    }
+    100%{opacity:0;}
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    padding:40px 20px;
+    font-family:Arial,sans-serif;
+    font-size:11px;
+    opacity:.4;
+}
+
+</style>
 </head>
 
 <body>
 
-    <div class="card">
+<div class="sky"></div>
+<div class="stars"></div>
+<div class="shooting"></div>
 
-        <div class="date">8 • 8 • ❤️</div>
+<!-- HERO -->
 
-        <div class="heart">❤️</div>
+<section class="hero">
 
-        <h1>Najwa</h1>
+<div class="container">
 
-        <div class="subtitle">I LOVE YOU</div>
+<div class="small-date">
+8 • 8 • 2026
+</div>
 
-        <div class="divider"></div>
+<div class="big-heart">
+❤️
+</div>
 
-        <p class="message">
-            If I could give you one thing in life,
-            I would give you the ability to see yourself
-            through my eyes.
-        </p>
+<h1>Najwa</h1>
 
-        <p class="quote">
-            "Because then you would finally understand
-            how special you are to me."
-        </p>
+<div class="hero-sub">
+I LOVE YOU
+</div>
 
-        <div class="divider"></div>
+</div>
 
-        <p class="message">
-            I don't need a perfect story.
-            I just want the little moments,
-            the smiles, the memories,
-            and a reason to keep choosing you.
-        </p>
+<div class="scroll">
+↓ SCROLL SLOWLY ↓
+</div>
 
-        <button class="love-button" onclick="showSecret()">
-            Open my heart ❤️
-        </button>
+</section>
 
-        <div id="secret">
-            Najwa, wherever life takes us,
-            a part of my heart will always remember
-            this little date — <b>8-8</b>.
-            <br><br>
-            You are not just someone I love.
-            You are someone I will always wish happiness for.
-            ❤️
-        </div>
 
-        <div class="music">
-            🎵 Tap the music button below when we add your song.
-        </div>
+<!-- LETTER -->
 
-        <audio id="song" controls style="width:100%; margin-top:15px;">
-            <source src="music.mp3" type="audio/mpeg">
-            Your browser does not support audio.
-        </audio>
+<section>
 
-        <div class="footer">
-            Made with ❤️ for Najwa
-        </div>
+<div class="container">
 
-    </div>
+<div class="card">
 
-    <script>
-        function showSecret() {
-            document.getElementById("secret").style.display = "block";
-        }
+<div class="envelope">
+💌
+</div>
 
-        function createHeart() {
-            const heart = document.createElement("div");
-            heart.className = "floating-heart";
-            heart.innerHTML = Math.random() > 0.5 ? "❤️" : "♡";
+<h2>A little letter for you</h2>
 
-            heart.style.left = Math.random() * 100 + "vw";
-            heart.style.fontSize = (12 + Math.random() * 20) + "px";
-            heart.style.animationDuration = (5 + Math.random() * 7) + "s";
+<p class="text">
 
-            document.body.appendChild(heart);
+Najwa,
 
-            setTimeout(() => {
-                heart.remove();
-            }, 12000);
-        }
+sometimes words are not enough to explain
+what someone means to you.
 
-        setInterval(createHeart, 900);
-    </script>
+So I made this little place in the world
+just for you.
+
+Not because I know how to write
+the perfect love story...
+
+but because you are someone
+worth writing one for.
+
+</p>
+
+<div class="signature">
+— From my heart ❤️
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SECRET MESSAGE -->
+
+<section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>There is something hidden...</h2>
+
+<p class="text">
+Maybe you should press the button.
+</p>
+
+<button onclick="openSecret()">
+Open my heart ❤️
+</button>
+
+<div class="secret" id="secret">
+
+<p class="text">
+
+If I could give you one thing,
+I would give you the ability
+to see yourself through my eyes.
+
+Then you would understand
+why you are so special to me.
+
+And if I could choose one memory
+to keep forever...
+
+I would choose the moments
+where you smiled.
+
+❤️
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- PHOTOS -->
+
+<section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Our little memories 📸</h2>
+
+<p class="text">
+Some moments deserve to stay forever.
+</p>
+
+<div class="photos">
+
+<div class="photo">
+YOUR PHOTO ❤️
+</div>
+
+<div class="photo">
+YOUR PHOTO ❤️
+</div>
+
+<div class="photo">
+YOUR PHOTO ❤️
+</div>
+
+<div class="photo">
+YOUR PHOTO ❤️
+</div>
+
+</div>
+
+<p style="margin-top:20px;opacity:.5;font-family:Arial;font-size:12px;">
+We'll replace these with your real photos.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- REASONS -->
+
+<section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Why you are special ❤️</h2>
+
+<div class="reason">
+Because your smile can change a whole day.
+</div>
+
+<div class="reason">
+Because some people simply feel different.
+</div>
+
+<div class="reason">
+Because memories with you stay longer.
+</div>
+
+<div class="reason">
+Because you became a beautiful part of my thoughts.
+</div>
+
+<div class="reason">
+And simply... because you are you.
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- MUSIC -->
+
+<section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Our song 🎵</h2>
+
+<p class="text">
+Every love story needs a song.
+</p>
+
+<div class="music-box">
+
+<audio controls>
+<source src="music.mp3" type="audio/mpeg">
+Your browser does not support audio.
+</audio>
+
+<p style="margin-top:15px;opacity:.5;font-family:Arial;font-size:12px;">
+Tap ▶️ and listen.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FINAL -->
+
+<section>
+
+<div class="container final">
+
+<div class="final-heart">
+❤️
+</div>
+
+<h2>For Najwa</h2>
+
+<p>
+
+I don't know what tomorrow will bring.
+
+But I know that today,
+I wanted you to know
+that you are loved.
+
+Take care of yourself.
+
+Keep smiling.
+
+And whenever you see this date...
+
+remember that somewhere,
+someone was thinking about you.
+
+</p>
+
+<div class="date-big">
+8 • 8
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+Made with ❤️
+</footer>
+
+
+<script>
+
+/* SECRET */
+
+function openSecret(){
+
+    const secret=document.getElementById("secret");
+
+    secret.style.display="block";
+
+}
+
+
+/* FLOATING HEARTS */
+
+function createHeart(){
+
+    const heart=document.createElement("div");
+
+    heart.className="floating";
+
+    const hearts=["❤️","💗","💖","💕","♡"];
+
+    heart.innerHTML=hearts[
+        Math.floor(Math.random()*hearts.length)
+    ];
+
+    heart.style.left=Math.random()*100+"vw";
+
+    heart.style.fontSize=
+        (12+Math.random()*22)+"px";
+
+    heart.style.animationDuration=
+        (6+Math.random()*8)+"s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(()=>{
+        heart.remove();
+    },15000);
+
+}
+
+setInterval(createHeart,900);
+
+</script>
 
 </body>
 </html>
