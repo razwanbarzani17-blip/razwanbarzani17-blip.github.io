@@ -1,1350 +1,373 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To Najwa, My Eternal Love</title>
+  
+  <!-- Modern Serif & Sans-serif Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
 
-<title>Najwa ❤️</title>
-
-<style>
-
-/* =========================
-   RESET
-========================= */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#02050b;
-    color:#fff;
-    font-family:Georgia,serif;
-    overflow-x:hidden;
-}
-
-
-/* =========================
-   NIGHT SKY
-========================= */
-
-.sky{
-    position:fixed;
-    inset:0;
-    z-index:-10;
-    overflow:hidden;
-
-    background:
-        radial-gradient(
-            circle at 50% 25%,
-            #16294a 0%,
-            #091322 30%,
-            #03070f 65%,
-            #010207 100%
-        );
-}
-
-
-/* moon */
-
-.moon{
-    position:absolute;
-
-    width:230px;
-    height:230px;
-
-    border-radius:50%;
-
-    top:9%;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #fff,
-            #dce8f5 55%,
-            #9fb4cc 100%
-        );
-
-    box-shadow:
-        0 0 40px rgba(220,235,255,.5),
-        0 0 120px rgba(130,170,220,.25);
-}
-
-
-/* moon glow */
-
-.moon-glow{
-    position:absolute;
-
-    width:600px;
-    height:600px;
-
-    top:-80px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(150,190,240,.16),
-            transparent 65%
-        );
-
-    animation:
-        breathe 7s ease-in-out infinite alternate;
-}
-
-@keyframes breathe{
-    from{
-        transform:translateX(-50%) scale(.9);
-        opacity:.6;
+  <style>
+    :root {
+      --bg-color: #0b0708;
+      --card-bg: rgba(22, 14, 17, 0.75);
+      --gold: #d4af37;
+      --gold-light: #f3e5ab;
+      --crimson: #7209b7;
+      --rose: #e63946;
+      --text-main: #f8f9fa;
+      --text-muted: #b0a8b0;
     }
 
-    to{
-        transform:translateX(-50%) scale(1.1);
-        opacity:1;
-    }
-}
-
-
-/* stars */
-
-.stars,
-.stars2{
-    position:absolute;
-    inset:0;
-
-    background-image:
-        radial-gradient(
-            #fff 1px,
-            transparent 1px
-        );
-
-    background-size:110px 110px;
-    opacity:.35;
-}
-
-.stars{
-    background-position:20px 30px;
-}
-
-.stars2{
-    background-size:180px 180px;
-    background-position:80px 90px;
-    opacity:.18;
-}
-
-
-/* =========================
-   ENTER SCREEN
-========================= */
-
-#enter{
-    position:fixed;
-    inset:0;
-
-    z-index:999;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    background:#02050b;
-
-    transition:
-        opacity 1.5s ease;
-}
-
-.enter-inner{
-    animation:
-        enterAppear 2.2s ease;
-}
-
-@keyframes enterAppear{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.enter-small{
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:7px;
-
-    color:#9fb4cc;
-
-    margin-bottom:30px;
-}
-
-.enter-heart{
-
-    font-size:62px;
-
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(150,190,255,.7)
-        );
-
-    animation:
-        heartbeat 2s infinite;
-}
-
-@keyframes heartbeat{
-
-    50%{
-        transform:scale(1.12);
-    }
-}
-
-.enter-name{
-
-    margin-top:20px;
-
-    font-size:46px;
-
-    font-weight:normal;
-
-    letter-spacing:1px;
-}
-
-.enter-date{
-
-    margin-top:12px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:6px;
-
-    opacity:.35;
-}
-
-.enter-button{
-
-    margin-top:45px;
-
-    padding:13px 25px;
-
-    border-radius:50px;
-
-    border:
-        1px solid
-        rgba(180,210,240,.3);
-
-    background:
-        rgba(255,255,255,.04);
-
-    color:white;
-
-    cursor:pointer;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:3px;
-
-    transition:.5s;
-}
-
-.enter-button:hover{
-
-    background:
-        rgba(255,255,255,.1);
-
-    box-shadow:
-        0 0 30px
-        rgba(150,190,230,.2);
-
-    transform:translateY(-3px);
-}
-
-
-/* =========================
-   HERO
-========================= */
-
-.hero{
-
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:30px;
-
-    position:relative;
-}
-
-.hero-content{
-    margin-top:180px;
-
-    animation:
-        heroIn 2s ease;
-}
-
-@keyframes heroIn{
-
-    from{
-        opacity:0;
-        transform:translateY(30px);
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Montserrat', sans-serif;
+      min-height: 100vh;
+      overflow-x: hidden;
+      line-height: 1.8;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.hero-name{
-
-    font-size:
-        clamp(
-            65px,
-            18vw,
-            115px
-        );
-
-    font-weight:normal;
-
-    letter-spacing:-2px;
-
-    text-shadow:
-        0 0 40px
-        rgba(190,215,240,.25);
-}
-
-.hero-heart{
-    color:#fff;
-    font-size:25px;
-    vertical-align:middle;
-}
-
-.hero-line{
-
-    margin-top:18px;
-
-    font-size:19px;
-
-    letter-spacing:3px;
-
-    color:#b8c8db;
-
-    font-style:italic;
-}
-
-.scroll-hint{
-
-    margin-top:80px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:8px;
-
-    letter-spacing:5px;
-
-    opacity:.3;
-
-    animation:
-        hint 2s infinite;
-}
-
-@keyframes hint{
-
-    50%{
-        opacity:.7;
-    }
-}
-
-
-/* =========================
-   THE FEELING
-========================= */
-
-.feeling{
-
-    min-height:85vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:50px 25px;
-
-    text-align:center;
-}
-
-.feeling-inner{
-    max-width:600px;
-}
-
-.feeling-label{
-
-    font-family:Arial,sans-serif;
-
-    font-size:8px;
-
-    letter-spacing:7px;
-
-    color:#8095ad;
-
-    margin-bottom:35px;
-}
-
-.feeling-text{
-
-    font-size:
-        clamp(
-            30px,
-            7vw,
-            50px
-        );
-
-    line-height:1.35;
-
-    font-weight:normal;
-}
-
-.feeling-text span{
-    color:#c8d8e8;
-}
-
-
-/* =========================
-   MEMORY CARDS
-========================= */
-
-.memories{
-
-    min-height:100vh;
-
-    padding:80px 20px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-}
-
-.memory-container{
-    width:100%;
-    max-width:520px;
-}
-
-.memory-title{
-
-    font-size:27px;
-
-    font-weight:normal;
-
-    color:#dce7f2;
-
-    margin-bottom:40px;
-}
-
-.memory-card{
-
-    width:100%;
-
-    height:450px;
-
-    border-radius:24px;
-
-    padding:8px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255,255,255,.25),
-            rgba(255,255,255,.04)
-        );
-
-    border:
-        1px solid
-        rgba(255,255,255,.12);
-
-    box-shadow:
-        0 35px 100px
-        rgba(0,0,0,.7);
-
-    position:relative;
-
-    overflow:hidden;
-}
-
-.memory-card img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:18px;
-
-    opacity:.88;
-}
-
-.memory-overlay{
-
-    position:absolute;
-
-    inset:8px;
-
-    border-radius:18px;
-
-    background:
-        linear-gradient(
-            to top,
-            rgba(0,0,0,.55),
-            transparent 55%
-        );
-}
-
-.memory-caption{
-
-    position:absolute;
-
-    bottom:30px;
-
-    left:0;
-    right:0;
-
-    font-size:17px;
-
-    font-style:italic;
-
-    color:#e8f0f7;
-}
-
-.memory-number{
-
-    margin-top:20px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:8px;
-
-    letter-spacing:5px;
-
-    color:#71869d;
-}
-
-
-/* =========================
-   ONE SENTENCE
-========================= */
-
-.sentence{
-
-    min-height:80vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:40px 25px;
-}
-
-.sentence p{
-
-    max-width:600px;
-
-    font-size:
-        clamp(
-            28px,
-            6vw,
-            44px
-        );
-
-    line-height:1.5;
-
-    font-weight:normal;
-}
-
-.sentence span{
-
-    color:#aebfd2;
-}
-
-
-/* =========================
-   SECRET
-========================= */
-
-.secret-section{
-
-    min-height:80vh;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-}
-
-.lock{
-
-    font-size:48px;
-
-    opacity:.8;
-
-    cursor:pointer;
-
-    transition:.5s;
-
-    filter:
-        drop-shadow(
-            0 0 20px
-            rgba(180,210,240,.4)
-        );
-}
-
-.lock:hover{
-    transform:scale(1.12);
-}
-
-.lock-label{
-
-    margin-top:18px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:8px;
-
-    letter-spacing:4px;
-
-    opacity:.35;
-}
-
-
-/* =========================
-   FINAL
-========================= */
-
-.final{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    padding:30px;
-}
-
-.final-inner{
-    max-width:600px;
-}
-
-.final-heart{
-
-    font-size:55px;
-
-    filter:
-        drop-shadow(
-            0 0 25px
-            rgba(180,210,240,.5)
-        );
-
-    animation:
-        heartbeat 2s infinite;
-}
-
-.final-name{
-
-    margin-top:22px;
-
-    font-size:46px;
-
-    font-weight:normal;
-}
-
-.final-message{
-
-    margin-top:20px;
-
-    font-size:19px;
-
-    color:#aebfd1;
-
-    line-height:1.7;
-}
-
-.final-date{
-
-    margin-top:40px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:7px;
-
-    color:#71869d;
-}
-
-
-/* =========================
-   SECRET POPUP
-========================= */
-
-#secret{
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:700;
-
-    display:none;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:25px;
-
-    background:
-        rgba(1,4,10,.88);
-
-    backdrop-filter:blur(20px);
-}
-
-.secret-box{
-
-    width:100%;
-
-    max-width:430px;
-
-    padding:55px 30px;
-
-    text-align:center;
-
-    border-radius:28px;
-
-    background:
-        rgba(120,150,180,.08);
-
-    border:
-        1px solid
-        rgba(200,220,240,.18);
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.8);
-
-    animation:
-        popup 1s ease;
-}
-
-@keyframes popup{
-
-    from{
-        opacity:0;
-        transform:scale(.85);
+    /* Ambient Background Glow */
+    .ambient-glow {
+      position: fixed;
+      width: 60vw;
+      height: 60vw;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(114, 9, 183, 0.15) 0%, rgba(140, 20, 50, 0.1) 40%, transparent 70%);
+      top: 20%;
+      left: 20%;
+      z-index: 0;
+      pointer-events: none;
+      filter: blur(80px);
     }
 
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.secret-heart{
-
-    font-size:50px;
-
-    margin-bottom:25px;
-}
-
-.secret-title{
-
-    font-size:38px;
-
-    font-weight:normal;
-}
-
-.secret-message{
-
-    margin-top:20px;
-
-    color:#c5d3e0;
-
-    font-size:18px;
-
-    line-height:1.8;
-}
-
-.secret-name{
-
-    margin-top:22px;
-
-    color:white;
-
-    font-size:21px;
-}
-
-.close{
-
-    margin-top:35px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:8px;
-
-    letter-spacing:4px;
-
-    opacity:.3;
-
-    cursor:pointer;
-}
-
-
-/* =========================
-   FLOATING PARTICLES
-========================= */
-
-.particle{
-
-    position:fixed;
-
-    bottom:-40px;
-
-    z-index:30;
-
-    pointer-events:none;
-
-    animation:
-        rise
-        linear
-        forwards;
-}
-
-@keyframes rise{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateY(0)
-            translateX(0)
-            rotate(0);
+    /* Header Section */
+    header {
+      text-align: center;
+      padding: 100px 20px 40px;
+      position: relative;
+      z-index: 1;
     }
 
-    15%{
-        opacity:.7;
+    h1.title {
+      font-family: 'Cinzel', serif;
+      font-size: 3.5rem;
+      font-weight: 400;
+      letter-spacing: 4px;
+      background: linear-gradient(135deg, #ffffff 0%, var(--gold-light) 50%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 15px;
     }
 
-    100%{
-        opacity:0;
-
-        transform:
-            translateY(-110vh)
-            translateX(var(--x))
-            rotate(var(--r));
-    }
-}
-
-
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:600px){
-
-    .moon{
-        width:180px;
-        height:180px;
-        top:12%;
+    p.subtitle {
+      font-size: 1rem;
+      color: var(--text-muted);
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 300;
     }
 
-    .hero-content{
-        margin-top:150px;
+    /* Elegant Infinite Marquee */
+    .marquee-wrapper {
+      width: 100%;
+      overflow: hidden;
+      padding: 25px 0;
+      background: rgba(255, 255, 255, 0.02);
+      border-top: 1px solid rgba(212, 175, 55, 0.2);
+      border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+      margin: 40px 0;
+      position: relative;
+      z-index: 1;
     }
 
-    .memory-card{
-        height:390px;
+    .marquee-track {
+      display: flex;
+      white-space: nowrap;
+      animation: marquee 35s linear infinite;
     }
 
-}
+    .marquee-item {
+      font-family: 'Cinzel', serif;
+      font-size: 1.2rem;
+      letter-spacing: 4px;
+      color: var(--gold-light);
+      margin-right: 50px;
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      opacity: 0.85;
+    }
 
-</style>
+    .marquee-item span.symbol {
+      color: var(--rose);
+      font-size: 0.9rem;
+    }
+
+    /* Main Container */
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 20px 100px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Letter Card */
+    .letter-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(212, 175, 55, 0.25);
+      border-radius: 12px;
+      padding: 50px 40px;
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6);
+      backdrop-filter: blur(15px);
+      margin-bottom: 60px;
+    }
+
+    .letter-card h2 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold);
+      font-size: 1.8rem;
+      margin-bottom: 25px;
+      font-weight: 400;
+    }
+
+    .letter-card p {
+      color: #e0d8e0;
+      font-size: 1.05rem;
+      margin-bottom: 20px;
+      font-weight: 300;
+    }
+
+    .letter-card p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Love Definition Section */
+    .definition-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+      margin-bottom: 60px;
+    }
+
+    .def-card {
+      background: rgba(255, 255, 255, 0.02);
+      border-left: 2px solid var(--gold);
+      padding: 25px 30px;
+      border-radius: 0 8px 8px 0;
+      transition: all 0.4s ease;
+    }
+
+    .def-card:hover {
+      background: rgba(212, 175, 55, 0.05);
+      transform: translateX(10px);
+    }
+
+    .def-card h3 {
+      font-family: 'Cinzel', serif;
+      color: var(--gold-light);
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+    }
+
+    .def-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    /* Audio Player */
+    .audio-section {
+      text-align: center;
+      padding: 30px;
+      background: var(--card-bg);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .audio-info {
+      text-align: left;
+    }
+
+    .audio-info p.song-title {
+      color: var(--text-main);
+      font-weight: 500;
+      font-size: 0.95rem;
+    }
+
+    .audio-info p.artist {
+      color: var(--text-muted);
+      font-size: 0.8rem;
+    }
+
+    .play-btn {
+      background: linear-gradient(135deg, var(--gold) 0%, #b8860b 100%);
+      color: #000;
+      border: none;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .play-btn:hover {
+      transform: scale(1.08);
+    }
+
+    /* Keyframe Animations */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    /* Floating Dust Particles */
+    .particle {
+      position: fixed;
+      background: var(--gold);
+      border-radius: 50%;
+      opacity: 0.3;
+      pointer-events: none;
+      animation: float 12s infinite ease-in-out;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) translateX(0); }
+      50% { transform: translateY(-100px) translateX(50px); }
+    }
+
+    @media (max-width: 600px) {
+      h1.title { font-size: 2.5rem; }
+      .letter-card { padding: 30px 20px; }
+      .audio-section { flex-direction: column; gap: 15px; border-radius: 20px; text-align: center; }
+      .audio-info { text-align: center; }
+    }
+  </style>
 </head>
-
-
 <body>
 
+  <div class="ambient-glow"></div>
 
-<!-- NIGHT -->
+  <!-- Music Source -->
+  <!-- Change 'your-song.mp3' to your audio file name or direct URL -->
+  <audio id="bgMusic" loop>
+    <source src="your-song.mp3" type="audio/mpeg">
+  </audio>
 
-<div class="sky">
+  <!-- Header -->
+  <header>
+    <p class="subtitle">A Dedication to</p>
+    <h1 class="title">NAJWA</h1>
+  </header>
 
-    <div class="moon-glow"></div>
-    <div class="moon"></div>
+  <!-- High-End Scrolling Marquee -->
+  <div class="marquee-wrapper">
+    <div class="marquee-track" id="marqueeTrack"></div>
+  </div>
 
-    <div class="stars"></div>
-    <div class="stars2"></div>
-
-</div>
-
-
-<!-- ENTER -->
-
-<div id="enter">
-
-    <div class="enter-inner">
-
-        <div class="enter-small">
-            FOR ONE PERSON
-        </div>
-
-        <div class="enter-heart">
-            ❤️
-        </div>
-
-        <div class="enter-name">
-            Najwa
-        </div>
-
-        <div class="enter-date">
-            8 • 8
-        </div>
-
-        <button
-            class="enter-button"
-            onclick="start()"
-        >
-            ENTER
-        </button>
-
+  <div class="container">
+    
+    <!-- Deep Love Letter -->
+    <div class="letter-card">
+      <h2>What You Mean To Me</h2>
+      <p>Najwa, loving you is not just a feeling; it is the quiet certainty that I have found my home. You are the stillness in the middle of chaos, the grace in every quiet moment, and the brightest light in my journey.</p>
+      <p>Before you, love was just an abstract word. With you, it became my reality—defined by your warmth, your kindness, and the effortless grace you bring into my world every single day.</p>
     </div>
 
-</div>
+    <!-- What Love Means (Definitions) -->
+    <div class="definition-grid">
+      <div class="def-card">
+        <h3>Love is Presence</h3>
+        <p>It is knowing that no matter where life leads us, my heart rests completely with you.</p>
+      </div>
 
+      <div class="def-card">
+        <h3>Love is Sanctuary</h3>
+        <p>In your eyes, I find peace. In your smile, I find everything I will ever need.</p>
+      </div>
 
-<!-- MUSIC -->
-
-<audio
-    id="music"
-    loop
->
-
-    <source
-        src="music.mp3"
-        type="audio/mpeg"
-    >
-
-</audio>
-
-
-<!-- HERO -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-name">
-            Najwa <span class="hero-heart">❤️</span>
-        </div>
-
-        <div class="hero-line">
-            Be mine.
-        </div>
-
-        <div class="scroll-hint">
-            SCROLL
-        </div>
-
+      <div class="def-card">
+        <h3>Love is Timeless</h3>
+        <p>I loved you yesterday, I adore you today, and I will cherish you for all of my tomorrows.</p>
+      </div>
     </div>
 
-</section>
-
-
-<!-- FEELING -->
-
-<section class="feeling">
-
-    <div class="feeling-inner">
-
-        <div class="feeling-label">
-            IF LOVE HAD A FEELING
-        </div>
-
-        <div class="feeling-text">
-
-            I think it would feel like
-            <span>
-                finding home
-            </span>
-            in someone.
-
-        </div>
-
+    <!-- Custom Music Player -->
+    <div class="audio-section">
+      <div class="audio-info">
+        <p class="song-title">Our Atmosphere</p>
+        <p class="artist">Dedicated to Najwa</p>
+      </div>
+      <button class="play-btn" id="playBtn" onclick="toggleAudio()">▶</button>
     </div>
 
-</section>
-
-
-<!-- MEMORY -->
-
-<section class="memories">
-
-    <div class="memory-container">
-
-        <div class="memory-title">
-            A feeling worth remembering.
-        </div>
-
-        <div class="memory-card">
-
-            <img
-                src="love1.jpg"
-                alt="Love"
-            >
-
-            <div class="memory-overlay"></div>
-
-            <div class="memory-caption">
-                Some things are felt, not explained.
-            </div>
-
-        </div>
-
-        <div class="memory-number">
-            ONE
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SENTENCE -->
-
-<section class="sentence">
-
-    <p>
-
-        Out of all the places
-        in this world,
-
-        <br><br>
-
-        <span>
-            my heart found you.
-        </span>
-
-    </p>
-
-</section>
-
-
-<!-- SECOND MEMORY -->
-
-<section class="memories">
-
-    <div class="memory-container">
-
-        <div class="memory-card">
-
-            <img
-                src="love2.jpg"
-                alt="Love"
-            >
-
-            <div class="memory-overlay"></div>
-
-            <div class="memory-caption">
-                And somehow, you became my favorite thought.
-            </div>
-
-        </div>
-
-        <div class="memory-number">
-            TWO
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SECRET -->
-
-<section class="secret-section">
-
-    <div>
-
-        <div
-            class="lock"
-            onclick="openSecret()"
-        >
-            ♡
-        </div>
-
-        <div class="lock-label">
-            THERE'S SOMETHING I DIDN'T SAY
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- FINAL -->
-
-<section class="final">
-
-    <div class="final-inner">
-
-        <div class="final-heart">
-            ❤️
-        </div>
-
-        <div class="final-name">
-            Najwa
-        </div>
-
-        <div class="final-message">
-            If you ever wonder what
-            my heart chose...
-            <br>
-            it chose you.
-        </div>
-
-        <div class="final-date">
-            8 • 8
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- SECRET POPUP -->
-
-<div id="secret">
-
-    <div class="secret-box">
-
-        <div class="secret-heart">
-            ❤️
-        </div>
-
-        <div class="secret-title">
-            Najwa
-        </div>
-
-        <div class="secret-message">
-            I don't need a thousand words
-            to explain it.
-            <br><br>
-            I love you.
-        </div>
-
-        <div class="secret-name">
-            Choose my heart. ❤️
-        </div>
-
-        <div
-            class="close"
-            onclick="closeSecret()"
-        >
-            CLOSE
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-
-/* =========================
-   START
-========================= */
-
-function start(){
-
-    const enter =
-        document.getElementById("enter");
-
-    const music =
-        document.getElementById("music");
-
-    music.volume = 0.6;
-
-    music.play().catch(()=>{});
-
-    enter.style.opacity="0";
-
-    setTimeout(()=>{
-
-        enter.style.display="none";
-
-    },1500);
-
-}
-
-
-/* =========================
-   SECRET
-========================= */
-
-function openSecret(){
-
-    document.getElementById(
-        "secret"
-    ).style.display="flex";
-
-    for(
-        let i=0;
-        i<30;
-        i++
-    ){
-
-        setTimeout(
-            createParticle,
-            i*70
-        );
-
+  </div>
+
+  <script>
+    // 1. Populate Refined Marquee Text
+    const phrase = '<div class="marquee-item"><span>I LOVE YOU, NAJWA</span><span class="symbol">◆</span><span>MY FOREVER</span><span class="symbol">◆</span></div>';
+    const marqueeTrack = document.getElementById('marqueeTrack');
+    marqueeTrack.innerHTML = phrase.repeat(12);
+
+    // 2. Audio Control Logic
+    const audio = document.getElementById('bgMusic');
+    const playBtn = document.getElementById('playBtn');
+
+    function toggleAudio() {
+      if (audio.paused) {
+        audio.play();
+        playBtn.innerHTML = '❚❚';
+      } else {
+        audio.pause();
+        playBtn.innerHTML = '▶';
+      }
     }
 
-}
+    // Attempt audio start on gentle user click
+    document.addEventListener('click', function() {
+      if (audio.paused) {
+        audio.play().then(() => {
+          playBtn.innerHTML = '❚❚';
+        }).catch(() => {});
+      }
+    }, { once: true });
 
-
-function closeSecret(){
-
-    document.getElementById(
-        "secret"
-    ).style.display="none";
-
-}
-
-
-/* =========================
-   PARTICLES
-========================= */
-
-function createParticle(){
-
-    const p =
-        document.createElement("div");
-
-    p.className="particle";
-
-
-    const symbols=[
-        "❤️",
-        "♡",
-        "💗",
-        "💞",
-        "🌸",
-        "✦",
-        "·"
-    ];
-
-
-    p.innerHTML =
-        symbols[
-            Math.floor(
-                Math.random()
-                *symbols.length
-            )
-        ];
-
-
-    p.style.left =
-        Math.random()*100+"vw";
-
-
-    p.style.fontSize =
-        (
-            10+
-            Math.random()*20
-        )+"px";
-
-
-    p.style.setProperty(
-        "--x",
-        (
-            Math.random()*160-80
-        )+"px"
-    );
-
-
-    p.style.setProperty(
-        "--r",
-        (
-            Math.random()*360
-        )+"deg"
-    );
-
-
-    p.style.animationDuration =
-        (
-            7+
-            Math.random()*7
-        )+"s";
-
-
-    document.body.appendChild(p);
-
-
-    setTimeout(()=>{
-
-        p.remove();
-
-    },15000);
-
-}
-
-
-/* gentle atmosphere */
-
-setInterval(
-    createParticle,
-    1800
-);
-
-</script>
+    // 3. Ambient Dust Particles Effect
+    for (let i = 0; i < 20; i++) {
+      const particle = document.createElement('div');
+      particle.classList.add('particle');
+      
+      const size = Math.random() * 3 + 1;
+      particle.style.width = `${size}px`;
+      particle.style.height = `${size}px`;
+      
+      particle.style.left = `${Math.random() * 100}vw`;
+      particle.style.top = `${Math.random() * 100}vh`;
+      particle.style.animationDuration = `${Math.random() * 10 + 10}s`;
+      particle.style.animationDelay = `${Math.random() * 5}s`;
+      
+      document.body.appendChild(particle);
+    }
+  </script>
 
 </body>
 </html>
