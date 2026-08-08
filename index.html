@@ -8,9 +8,9 @@
 
 <style>
 
-/* =========================
-   RESET
-========================= */
+/* ==============================
+   BASIC
+================================ */
 
 *{
     margin:0;
@@ -18,193 +18,164 @@
     box-sizing:border-box;
 }
 
-html,body{
-    width:100%;
-    min-height:100%;
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    overflow:hidden;
-    background:#18030e;
+    background:#12030b;
     color:white;
     font-family:Georgia,serif;
+    overflow-x:hidden;
 }
 
 
-/* =========================
-   DREAMY PINK BACKGROUND
-========================= */
+/* ==============================
+   DREAM BACKGROUND
+================================ */
 
-.background{
+.bg{
     position:fixed;
     inset:0;
-    overflow:hidden;
+    z-index:-10;
 
     background:
         radial-gradient(
-            circle at 50% 45%,
-            rgba(255,135,185,.75),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 15% 20%,
-            rgba(255,80,150,.45),
+            circle at 50% 30%,
+            rgba(255,120,175,.5),
             transparent 30%
         ),
         radial-gradient(
-            circle at 85% 75%,
-            rgba(188,55,125,.5),
+            circle at 10% 80%,
+            rgba(180,40,110,.4),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 90% 10%,
+            rgba(255,80,150,.35),
             transparent 35%
         ),
         linear-gradient(
-            135deg,
-            #21040f,
-            #741a45,
-            #d84f87,
-            #5b1235,
-            #12020b
+            145deg,
+            #12030b,
+            #3b0b26,
+            #791d4b,
+            #2b071b,
+            #090107
         );
-
-    z-index:-10;
 }
 
-
-/* Moving pink lights */
-
-.light{
+.bg::before{
+    content:"";
     position:absolute;
-
-    width:300px;
-    height:300px;
-
-    border-radius:50%;
+    inset:-30%;
 
     background:
-        rgba(255,170,210,.18);
-
-    filter:blur(70px);
+        radial-gradient(
+            circle,
+            rgba(255,190,220,.12),
+            transparent 30%
+        );
 
     animation:
-        moveLight 12s ease-in-out infinite alternate;
+        atmosphere 15s ease-in-out infinite alternate;
 }
 
-.light:nth-child(1){
-    top:-100px;
-    left:-100px;
-}
+@keyframes atmosphere{
 
-.light:nth-child(2){
-    right:-100px;
-    bottom:-80px;
-
-    animation-delay:3s;
-}
-
-.light:nth-child(3){
-    top:40%;
-    left:40%;
-
-    width:180px;
-    height:180px;
-
-    animation-delay:6s;
-}
-
-@keyframes moveLight{
-
-    0%{
-        transform:translate(0,0) scale(1);
+    from{
+        transform:
+            translate(-5%,-3%)
+            scale(1);
     }
 
-    50%{
-        transform:translate(100px,60px) scale(1.3);
-    }
-
-    100%{
-        transform:translate(-50px,-80px) scale(.9);
+    to{
+        transform:
+            translate(5%,4%)
+            scale(1.2);
     }
 }
 
 
-/* =========================
+/* ==============================
    STARS
-========================= */
+================================ */
 
 .stars{
-    position:absolute;
+    position:fixed;
     inset:0;
+    z-index:-8;
 
     background-image:
         radial-gradient(
-            rgba(255,255,255,.8) 1px,
+            white 1px,
             transparent 1px
         ),
         radial-gradient(
-            rgba(255,210,230,.6) 1px,
+            rgba(255,180,215,.8) 1px,
             transparent 1px
         );
 
     background-size:
         90px 90px,
-        150px 150px;
+        160px 160px;
 
-    opacity:.35;
+    opacity:.3;
 
     animation:
-        starsMove 30s linear infinite;
+        starMove 35s linear infinite;
 }
 
-@keyframes starsMove{
+@keyframes starMove{
 
     from{
         transform:translateY(0);
     }
 
     to{
-        transform:translateY(-100px);
+        transform:translateY(-120px);
     }
 }
 
 
-/* =========================
-   ENTER SCREEN
-========================= */
+/* ==============================
+   ENTER
+================================ */
 
 #enter{
     position:fixed;
     inset:0;
 
-    z-index:1000;
+    z-index:999;
 
     display:flex;
-    justify-content:center;
     align-items:center;
+    justify-content:center;
 
     text-align:center;
 
     background:
         radial-gradient(
             circle at center,
-            #ff9fc5,
-            #a72d61 45%,
-            #230511 100%
+            #f77da9,
+            #74183f 50%,
+            #16030d
         );
 
     transition:
-        opacity 1.2s ease,
-        visibility 1.2s ease;
+        opacity 1.2s ease;
 }
 
 .enter-content{
     animation:
-        enterAppear 2s ease;
+        entrance 2s ease;
 }
 
-@keyframes enterAppear{
+@keyframes entrance{
 
     from{
         opacity:0;
-        transform:translateY(30px);
+        transform:translateY(25px);
     }
 
     to{
@@ -214,29 +185,29 @@ body{
 }
 
 .enter-heart{
-    font-size:80px;
+    font-size:75px;
 
     filter:
         drop-shadow(
             0 0 35px
-            #ff8dbb
+            rgba(255,120,180,.9)
         );
 
     animation:
-        heartbeat 1.5s infinite;
+        beat 1.6s infinite;
 }
 
-@keyframes heartbeat{
+@keyframes beat{
 
     50%{
         transform:scale(1.15);
     }
 }
 
-.enter-title{
-    margin-top:25px;
+.enter-text{
+    margin-top:22px;
 
-    font-size:38px;
+    font-size:34px;
 
     font-weight:normal;
 }
@@ -250,14 +221,14 @@ body{
 
     letter-spacing:7px;
 
-    opacity:.6;
+    opacity:.55;
 }
 
 .enter-button{
 
     margin-top:35px;
 
-    padding:15px 30px;
+    padding:14px 27px;
 
     border-radius:40px;
 
@@ -266,89 +237,61 @@ body{
         rgba(255,255,255,.35);
 
     background:
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.1);
 
     color:white;
 
-    font-size:14px;
+    font-family:Arial,sans-serif;
+
+    font-size:12px;
 
     cursor:pointer;
 
-    backdrop-filter:blur(12px);
+    backdrop-filter:blur(10px);
 
     transition:.4s;
 }
 
 .enter-button:hover{
-    transform:scale(1.07);
-
-    background:
-        rgba(255,255,255,.2);
+    transform:scale(1.06);
 }
 
 
-/* =========================
-   MAIN
-========================= */
+/* ==============================
+   HERO
+================================ */
 
-.main{
-    position:relative;
+.hero{
 
-    width:100vw;
-    height:100vh;
+    min-height:100vh;
 
     display:flex;
 
-    justify-content:center;
     align-items:center;
 
+    justify-content:center;
+
     text-align:center;
-}
-
-
-/* =========================
-   MAIN GLOW
-========================= */
-
-.center-glow{
-
-    position:absolute;
-
-    width:500px;
-    height:500px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,130,185,.16);
-
-    filter:blur(80px);
-
-    animation:
-        centerPulse 5s ease-in-out infinite;
-
-    pointer-events:none;
-}
-
-@keyframes centerPulse{
-
-    50%{
-        transform:scale(1.2);
-        opacity:.7;
-    }
-}
-
-
-/* =========================
-   MAIN TEXT
-========================= */
-
-.content{
-    position:relative;
-
-    z-index:30;
 
     padding:30px;
+}
+
+.hero-content{
+    animation:
+        heroAppear 2s ease;
+}
+
+@keyframes heroAppear{
+
+    from{
+        opacity:0;
+        transform:scale(.95);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1);
+    }
 }
 
 .date{
@@ -359,7 +302,7 @@ body{
 
     letter-spacing:8px;
 
-    opacity:.6;
+    opacity:.5;
 
     margin-bottom:25px;
 }
@@ -370,23 +313,23 @@ body{
 
     filter:
         drop-shadow(
-            0 0 35px
-            #ff5798
+            0 0 30px
+            #ff3f91
         );
 
     animation:
-        heartbeat 1.6s infinite;
+        beat 1.6s infinite;
 }
 
 h1{
 
-    margin-top:12px;
+    margin-top:15px;
 
     font-size:
         clamp(
-            55px,
-            15vw,
-            95px
+            65px,
+            18vw,
+            105px
         );
 
     font-weight:normal;
@@ -395,91 +338,143 @@ h1{
         linear-gradient(
             90deg,
             #fff,
-            #ffd4e5,
-            #fff,
-            #ffb5d2
+            #ffc7dc,
+            #fff
         );
 
-    background-size:300%;
-
     -webkit-background-clip:text;
-
     -webkit-text-fill-color:transparent;
-
-    animation:
-        shine 5s linear infinite;
-}
-
-@keyframes shine{
-
-    to{
-        background-position:
-            300% center;
-    }
 }
 
 .be-mine{
 
-    margin-top:10px;
+    margin-top:4px;
 
     font-size:28px;
 
     font-style:italic;
 
-    color:#fff;
-
     text-shadow:
         0 0 20px
-        rgba(255,150,195,.8);
+        rgba(255,160,200,.7);
 }
 
-.small-line{
+.hint{
 
-    margin-top:18px;
+    margin-top:60px;
 
     font-family:Arial,sans-serif;
 
-    font-size:10px;
+    font-size:9px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    opacity:.45;
+    opacity:.35;
 }
 
 
-/* =========================
-   FLOATING PICTURES
-========================= */
+/* ==============================
+   MEMORY SECTION
+================================ */
+
+.memory{
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:70px 20px;
+
+    text-align:center;
+}
+
+.memory-box{
+
+    width:100%;
+
+    max-width:480px;
+}
+
+.memory-title{
+
+    font-size:31px;
+
+    font-weight:normal;
+
+    margin-bottom:35px;
+}
+
+.memory-title span{
+    color:#ffc2da;
+}
+
+
+/* ==============================
+   PHOTO
+================================ */
+
+.photo-wrap{
+
+    position:relative;
+
+    width:100%;
+
+    height:430px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+}
 
 .photo{
 
     position:absolute;
 
-    width:145px;
-    height:190px;
+    width:82%;
 
-    padding:6px;
+    height:390px;
 
-    border-radius:18px;
+    padding:7px;
 
     background:
-        rgba(255,255,255,.9);
+        rgba(255,255,255,.95);
+
+    border-radius:20px;
 
     box-shadow:
-        0 20px 60px
-        rgba(0,0,0,.45);
+        0 30px 80px
+        rgba(0,0,0,.55);
 
-    opacity:.82;
+    opacity:0;
 
-    z-index:5;
+    transform:
+        scale(.92)
+        rotate(-3deg);
 
-    pointer-events:none;
+    transition:
+        opacity 1.2s ease,
+        transform 1.2s ease;
+}
 
-    animation:
-        photoFloat
-        var(--duration)
-        ease-in-out
-        infinite alternate;
+.photo.active{
+
+    opacity:1;
+
+    transform:
+        scale(1)
+        rotate(-2deg);
+}
+
+.photo:nth-child(even).active{
+    transform:
+        scale(1)
+        rotate(2deg);
 }
 
 .photo img{
@@ -489,289 +484,160 @@ h1{
 
     object-fit:cover;
 
-    border-radius:13px;
+    border-radius:14px;
 }
 
-.photo.one{
+.photo-number{
 
-    left:5%;
-    top:13%;
+    margin-top:25px;
 
-    --duration:7s;
+    font-family:Arial,sans-serif;
 
-    transform:rotate(-12deg);
-}
+    font-size:9px;
 
-.photo.two{
+    letter-spacing:4px;
 
-    right:5%;
-    top:18%;
-
-    --duration:8s;
-
-    transform:rotate(10deg);
-}
-
-.photo.three{
-
-    left:9%;
-    bottom:8%;
-
-    --duration:9s;
-
-    transform:rotate(8deg);
-}
-
-.photo.four{
-
-    right:8%;
-    bottom:10%;
-
-    --duration:7.5s;
-
-    transform:rotate(-10deg);
-}
-
-.photo.five{
-
-    left:50%;
-    top:5%;
-
-    width:105px;
-    height:135px;
-
-    opacity:.6;
-
-    --duration:10s;
-
-    transform:
-        translateX(-50%)
-        rotate(5deg);
-}
-
-@keyframes photoFloat{
-
-    0%{
-        transform:
-            translateY(0)
-            rotate(var(--rotation));
-    }
-
-    100%{
-        transform:
-            translateY(-22px)
-            rotate(var(--rotation));
-    }
+    opacity:.35;
 }
 
 
-/* =========================
-   FLOATING LOVE
-========================= */
+/* ==============================
+   LITTLE LINE
+================================ */
 
-.float{
+.little{
 
-    position:fixed;
+    min-height:55vh;
 
-    bottom:-50px;
+    display:flex;
 
-    z-index:40;
+    justify-content:center;
 
-    pointer-events:none;
+    align-items:center;
 
-    animation:
-        floatUp
-        linear
-        forwards;
+    text-align:center;
 
-    text-shadow:
-        0 0 15px
-        rgba(255,130,190,.9);
+    padding:30px;
 }
 
-@keyframes floatUp{
+.little p{
 
-    0%{
-        opacity:0;
+    max-width:400px;
 
-        transform:
-            translateY(0)
-            translateX(0)
-            rotate(0);
-    }
+    font-size:25px;
 
-    15%{
-        opacity:.9;
-    }
+    line-height:1.7;
 
-    100%{
-        opacity:0;
+    font-weight:normal;
+}
 
-        transform:
-            translateY(-110vh)
-            translateX(var(--move))
-            rotate(var(--rotate));
-    }
+.little span{
+    color:#ffc3da;
 }
 
 
-/* =========================
-   I LOVE YOU FLOATING
-========================= */
-
-.love-text{
-
-    position:fixed;
-
-    bottom:-40px;
-
-    z-index:39;
-
-    pointer-events:none;
-
-    font-size:16px;
-
-    font-style:italic;
-
-    color:#ffe0ec;
-
-    text-shadow:
-        0 0 15px
-        rgba(255,120,180,.9);
-
-    animation:
-        textUp
-        9s
-        linear
-        forwards;
-}
-
-@keyframes textUp{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateY(0)
-            translateX(0);
-    }
-
-    15%{
-        opacity:.75;
-    }
-
-    100%{
-        opacity:0;
-
-        transform:
-            translateY(-110vh)
-            translateX(var(--move));
-    }
-}
-
-
-/* =========================
+/* ==============================
    GIFT
-========================= */
+================================ */
 
-.gift{
+.surprise{
 
-    position:absolute;
+    min-height:80vh;
 
-    bottom:30px;
+    display:flex;
 
-    left:50%;
+    align-items:center;
 
-    transform:
-        translateX(-50%);
-
-    z-index:50;
+    justify-content:center;
 
     text-align:center;
 }
 
-.gift-icon{
-
-    font-size:45px;
+.gift{
 
     cursor:pointer;
 
-    display:inline-block;
+    font-size:70px;
 
     filter:
         drop-shadow(
-            0 0 20px
-            rgba(255,130,190,.7)
+            0 0 30px
+            rgba(255,120,180,.8)
         );
 
     animation:
-        giftFloat 2s infinite;
+        gift 2s ease-in-out infinite;
+
+    transition:.4s;
 }
 
-@keyframes giftFloat{
+.gift:hover{
+    transform:scale(1.1);
+}
+
+@keyframes gift{
 
     50%{
-        transform:
-            translateY(-7px);
+        transform:translateY(-8px);
     }
 }
 
-.gift-label{
+.gift-text{
 
-    margin-top:4px;
+    margin-top:12px;
 
     font-family:Arial,sans-serif;
 
-    font-size:8px;
+    font-size:9px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    opacity:.45;
+    opacity:.4;
 }
 
 
-/* =========================
+/* ==============================
    SECRET
-========================= */
+================================ */
 
 #secret{
+
+    display:none;
 
     position:fixed;
 
     inset:0;
 
-    z-index:200;
+    z-index:500;
 
-    display:none;
+    background:
+        rgba(25,2,14,.82);
+
+    backdrop-filter:blur(18px);
+
+    align-items:center;
 
     justify-content:center;
-    align-items:center;
 
     text-align:center;
 
     padding:25px;
-
-    background:
-        rgba(50,5,25,.78);
-
-    backdrop-filter:
-        blur(15px);
 }
 
 .secret-box{
 
-    max-width:400px;
-
     padding:45px 30px;
+
+    max-width:420px;
 
     border-radius:30px;
 
-    background:
-        rgba(255,150,195,.13);
-
     border:
         1px solid
-        rgba(255,255,255,.2);
+        rgba(255,255,255,.18);
+
+    background:
+        rgba(255,130,180,.1);
 
     box-shadow:
         0 30px 100px
@@ -800,7 +666,7 @@ h1{
 
 .secret-title{
 
-    margin-top:15px;
+    margin-top:20px;
 
     font-size:36px;
 
@@ -809,16 +675,16 @@ h1{
 
 .secret-name{
 
-    margin-top:20px;
+    margin-top:18px;
 
     font-size:22px;
 
-    color:#ffd3e3;
+    color:#ffd2e2;
 }
 
 .close{
 
-    margin-top:28px;
+    margin-top:30px;
 
     font-family:Arial,sans-serif;
 
@@ -826,59 +692,179 @@ h1{
 
     letter-spacing:3px;
 
-    opacity:.4;
+    opacity:.35;
 
     cursor:pointer;
 }
 
 
-/* =========================
+/* ==============================
+   FLOATING HEARTS
+================================ */
+
+.float{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    z-index:20;
+
+    pointer-events:none;
+
+    animation:
+        floatUp
+        linear
+        forwards;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,120,180,.9);
+}
+
+@keyframes floatUp{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateY(0)
+            translateX(0)
+            rotate(0);
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translateY(-110vh)
+            translateX(var(--move))
+            rotate(var(--rotate));
+    }
+}
+
+
+/* ==============================
+   FLOATING LOVE WORDS
+================================ */
+
+.love-float{
+
+    position:fixed;
+
+    bottom:-40px;
+
+    z-index:19;
+
+    pointer-events:none;
+
+    color:#ffd9e7;
+
+    font-size:15px;
+
+    font-style:italic;
+
+    text-shadow:
+        0 0 15px
+        rgba(255,130,190,.8);
+
+    animation:
+        wordsUp
+        9s
+        linear
+        forwards;
+}
+
+@keyframes wordsUp{
+
+    0%{
+        opacity:0;
+
+        transform:
+            translateY(0)
+            translateX(0);
+    }
+
+    15%{
+        opacity:.7;
+    }
+
+    100%{
+        opacity:0;
+
+        transform:
+            translateY(-110vh)
+            translateX(var(--move));
+    }
+}
+
+
+/* ==============================
+   END
+================================ */
+
+.end{
+
+    min-height:70vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    padding:30px;
+}
+
+.end-heart{
+    font-size:60px;
+}
+
+.end h2{
+
+    margin-top:15px;
+
+    font-size:35px;
+
+    font-weight:normal;
+}
+
+.end-date{
+
+    margin-top:25px;
+
+    font-family:Arial,sans-serif;
+
+    letter-spacing:7px;
+
+    font-size:11px;
+
+    color:#ffb3d0;
+}
+
+
+/* ==============================
    MOBILE
-========================= */
+================================ */
 
 @media(max-width:600px){
 
     .photo{
-        width:100px;
-        height:135px;
+
+        width:90%;
+
+        height:380px;
     }
 
-    .photo.one{
-        left:1%;
-        top:10%;
-    }
+    .memory{
 
-    .photo.two{
-        right:1%;
-        top:13%;
-    }
-
-    .photo.three{
-        left:2%;
-        bottom:10%;
-    }
-
-    .photo.four{
-        right:2%;
-        bottom:12%;
-    }
-
-    .photo.five{
-        width:80px;
-        height:105px;
-        top:7%;
-    }
-
-    .content{
-        padding:20px;
-    }
-
-    .heart{
-        font-size:60px;
-    }
-
-    .be-mine{
-        font-size:24px;
+        padding-top:50px;
     }
 
 }
@@ -890,24 +876,14 @@ h1{
 <body>
 
 
-<!-- =========================
-     BACKGROUND
-========================= -->
+<!-- BACKGROUND -->
 
-<div class="background">
+<div class="bg"></div>
 
-    <div class="light"></div>
-    <div class="light"></div>
-    <div class="light"></div>
-
-    <div class="stars"></div>
-
-</div>
+<div class="stars"></div>
 
 
-<!-- =========================
-     ENTER
-========================= -->
+<!-- ENTER -->
 
 <div id="enter">
 
@@ -917,8 +893,8 @@ h1{
             ❤️
         </div>
 
-        <div class="enter-title">
-            For Najwa
+        <div class="enter-text">
+            Najwa
         </div>
 
         <div class="enter-date">
@@ -937,14 +913,11 @@ h1{
 </div>
 
 
-<!-- =========================
-     MUSIC
-========================= -->
+<!-- MUSIC -->
 
 <audio
     id="music"
     loop
-    preload="auto"
 >
 
     <source
@@ -955,42 +928,11 @@ h1{
 </audio>
 
 
-<!-- =========================
-     MAIN
-========================= -->
+<!-- HERO -->
 
-<main class="main">
+<section class="hero">
 
-
-    <div class="center-glow"></div>
-
-
-    <!-- FLOATING PHOTOS -->
-
-    <div class="photo one">
-        <img src="love1.jpg" alt="Love">
-    </div>
-
-    <div class="photo two">
-        <img src="love2.jpg" alt="Love">
-    </div>
-
-    <div class="photo three">
-        <img src="love3.jpg" alt="Love">
-    </div>
-
-    <div class="photo four">
-        <img src="love4.jpg" alt="Love">
-    </div>
-
-    <div class="photo five">
-        <img src="love5.jpg" alt="Love">
-    </div>
-
-
-    <!-- CENTER -->
-
-    <div class="content">
+    <div class="hero-content">
 
         <div class="date">
             8 • 8
@@ -1008,37 +950,128 @@ h1{
             Be Mine.
         </div>
 
-        <div class="small-line">
-            JUST FOR YOU
+        <div class="hint">
+            KEEP GOING ↓
         </div>
 
     </div>
 
+</section>
 
-    <!-- GIFT -->
 
-    <div class="gift">
+<!-- MEMORY -->
+
+<section class="memory">
+
+    <div class="memory-box">
+
+        <div class="memory-title">
+            A few little things
+            <span>❤️</span>
+        </div>
+
+
+        <div class="photo-wrap">
+
+            <div class="photo active">
+                <img
+                    src="love1.jpg"
+                    alt="Love"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="love2.jpg"
+                    alt="Love"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="love3.jpg"
+                    alt="Love"
+                >
+            </div>
+
+            <div class="photo">
+                <img
+                    src="love4.jpg"
+                    alt="Love"
+                >
+            </div>
+
+        </div>
+
+
+        <div class="photo-number">
+            01
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LITTLE MESSAGE -->
+
+<section class="little">
+
+    <p>
+        Sometimes one person
+        becomes
+        <span>your favorite thought.</span>
+    </p>
+
+</section>
+
+
+<!-- SURPRISE -->
+
+<section class="surprise">
+
+    <div>
 
         <div
-            class="gift-icon"
+            class="gift"
             onclick="openGift()"
         >
             🎁
         </div>
 
-        <div class="gift-label">
-            TAP
+        <div class="gift-text">
+            FOR YOU
         </div>
 
     </div>
 
+</section>
 
-</main>
+
+<!-- END -->
+
+<section class="end">
+
+    <div>
+
+        <div class="end-heart">
+            ❤️
+        </div>
+
+        <h2>
+            Najwa
+        </h2>
+
+        <div class="end-date">
+            8 • 8
+        </div>
+
+    </div>
+
+</section>
 
 
-<!-- =========================
-     SECRET
-========================= -->
+<!-- SECRET -->
 
 <div id="secret">
 
@@ -1070,81 +1103,78 @@ h1{
 
 <script>
 
-
-/* =========================
-   ENTER WEBSITE
-========================= */
+/* ==============================
+   ENTER + MUSIC
+================================ */
 
 function enterLove(){
 
-    const screen =
-        document.getElementById(
-            "enter"
-        );
+    const enter =
+        document.getElementById("enter");
 
     const music =
-        document.getElementById(
-            "music"
-        );
-
+        document.getElementById("music");
 
     music.volume=.65;
-
-
-    /*
-       Because she tapped the button,
-       iPhone allows the music to play.
-    */
 
     music.play()
     .catch(function(){});
 
-
-    screen.style.opacity="0";
+    enter.style.opacity="0";
 
     setTimeout(function(){
 
-        screen.style.visibility=
-            "hidden";
+        enter.style.display="none";
 
     },1200);
-
-
-    /*
-       Start a little stronger
-       floating effect after entry.
-    */
-
-    for(
-        let i=0;
-        i<15;
-        i++
-    ){
-
-        setTimeout(
-            createFloat,
-            i*100
-        );
-
-    }
 
 }
 
 
-/* =========================
+/* ==============================
+   PHOTO CHANGE
+================================ */
+
+const photos =
+    document.querySelectorAll(".photo");
+
+let current=0;
+
+setInterval(function(){
+
+    photos[current]
+        .classList
+        .remove("active");
+
+    current++;
+
+    if(current>=photos.length){
+        current=0;
+    }
+
+    photos[current]
+        .classList
+        .add("active");
+
+    document.querySelector(
+        ".photo-number"
+    ).innerText=
+        "0"+(current+1);
+
+},3500);
+
+
+/* ==============================
    GIFT
-========================= */
+================================ */
 
 function openGift(){
 
-    document
-        .getElementById("secret")
-        .style.display="flex";
+    const secret =
+        document.getElementById("secret");
 
+    secret.style.display="flex";
 
-    /*
-       Romantic burst.
-    */
 
     for(
         let i=0;
@@ -1155,20 +1185,6 @@ function openGift(){
         setTimeout(
             createFloat,
             i*60
-        );
-
-    }
-
-
-    for(
-        let i=0;
-        i<8;
-        i++
-    ){
-
-        setTimeout(
-            createLoveText,
-            i*150
         );
 
     }
@@ -1185,21 +1201,19 @@ function closeGift(){
 }
 
 
-/* =========================
-   FLOATING EMOJIS
-========================= */
+/* ==============================
+   FLOATING HEARTS
+================================ */
 
 function createFloat(){
 
     const item =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
     item.className="float";
 
 
-    const emojis=[
+    const symbols=[
 
         "❤️",
         "💗",
@@ -1215,10 +1229,10 @@ function createFloat(){
 
 
     item.innerHTML=
-        emojis[
+        symbols[
             Math.floor(
                 Math.random()
-                * emojis.length
+                *symbols.length
             )
         ];
 
@@ -1229,8 +1243,8 @@ function createFloat(){
 
     item.style.fontSize=
         (
-            14+
-            Math.random()*25
+            13+
+            Math.random()*24
         )+"px";
 
 
@@ -1257,45 +1271,34 @@ function createFloat(){
         )+"s";
 
 
-    document.body.appendChild(
-        item
-    );
+    document.body.appendChild(item);
 
 
-    setTimeout(
-        function(){
+    setTimeout(function(){
 
-            item.remove();
+        item.remove();
 
-        },
-        15000
-    );
+    },15000);
 
 }
 
 
-/* =========================
+/* ==============================
    FLOATING WORDS
-========================= */
+================================ */
 
 function createLoveText(){
 
     const text =
-        document.createElement(
-            "div"
-        );
+        document.createElement("div");
 
-    text.className=
-        "love-text";
-
+    text.className="love-float";
 
     text.innerHTML=
         "I love you ❤️";
 
-
     text.style.left=
-        Math.random()*80+"vw";
-
+        Math.random()*85+"vw";
 
     text.style.setProperty(
         "--move",
@@ -1304,48 +1307,36 @@ function createLoveText(){
         )+"px"
     );
 
-
-    document.body.appendChild(
-        text
-    );
+    document.body.appendChild(text);
 
 
-    setTimeout(
-        function(){
+    setTimeout(function(){
 
-            text.remove();
+        text.remove();
 
-        },
-        10000
-    );
+    },10000);
 
 }
 
 
-/* =========================
-   CONTINUOUS EFFECTS
-========================= */
+/* ==============================
+   AMBIENT EFFECT
+================================ */
 
 setInterval(
     createFloat,
-    850
+    1100
 );
 
+setInterval(function(){
 
-setInterval(
-    function(){
+    if(Math.random()<.45){
 
-        if(
-            Math.random()<.5
-        ){
+        createLoveText();
 
-            createLoveText();
+    }
 
-        }
-
-    },
-    3000
-);
+},3500);
 
 </script>
 
