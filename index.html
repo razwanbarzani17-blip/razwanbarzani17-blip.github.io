@@ -1,1560 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Najwa ❤️</title>
-
-<style>
-
-/* =====================================
-   RESET
-===================================== */
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
-
-html{
-    scroll-behavior:smooth;
-}
-
-body{
-    background:#08030a;
-    color:white;
-    font-family:Georgia,serif;
-    overflow-x:hidden;
-}
-
-
-/* =====================================
-   BACKGROUND
-===================================== */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-10;
-
-    background:
-        radial-gradient(
-            circle at 50% 40%,
-            rgba(255,105,165,.45),
-            transparent 28%
-        ),
-        radial-gradient(
-            circle at 15% 75%,
-            rgba(200,45,115,.35),
-            transparent 30%
-        ),
-        radial-gradient(
-            circle at 90% 15%,
-            rgba(255,150,200,.25),
-            transparent 30%
-        ),
-        linear-gradient(
-            145deg,
-            #08020a,
-            #260817,
-            #681b42,
-            #1d0613,
-            #050106
-        );
-}
-
-
-/* moving light */
-
-.light{
-    position:absolute;
-
-    width:350px;
-    height:350px;
-
-    border-radius:50%;
-
-    background:
-        rgba(255,130,185,.15);
-
-    filter:blur(80px);
-
-    animation:
-        lightMove 12s
-        ease-in-out
-        infinite
-        alternate;
-}
-
-.light.one{
-    top:-100px;
-    left:-100px;
-}
-
-.light.two{
-    right:-120px;
-    bottom:-100px;
-
-    animation-delay:4s;
-}
-
-.light.three{
-    top:40%;
-    left:40%;
-
-    width:220px;
-    height:220px;
-
-    animation-delay:7s;
-}
-
-@keyframes lightMove{
-
-    0%{
-        transform:translate(0,0) scale(1);
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To My Eternal Love, Najwa ❤️</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', 'Segoe UI', sans-serif;
     }
 
-    100%{
-        transform:
-            translate(100px,70px)
-            scale(1.25);
-    }
-}
-
-
-/* =====================================
-   STARS
-===================================== */
-
-.stars{
-    position:fixed;
-    inset:0;
-
-    background-image:
-        radial-gradient(
-            rgba(255,255,255,.8) 1px,
-            transparent 1px
-        ),
-        radial-gradient(
-            rgba(255,180,215,.7) 1px,
-            transparent 1px
-        );
-
-    background-size:
-        85px 85px,
-        145px 145px;
-
-    opacity:.35;
-
-    animation:
-        starsMove 35s
-        linear
-        infinite;
-}
-
-@keyframes starsMove{
-
-    to{
-        transform:translateY(-120px);
-    }
-}
-
-
-/* =====================================
-   OPENING
-===================================== */
-
-#opening{
-    position:fixed;
-    inset:0;
-
-    z-index:999;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    text-align:center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #e9689d,
-            #751c46 48%,
-            #10020a
-        );
-
-    transition:
-        opacity 1.4s ease;
-}
-
-.opening-content{
-    animation:
-        appear 2s ease;
-}
-
-@keyframes appear{
-
-    from{
-        opacity:0;
-        transform:translateY(30px);
+    body {
+      background: #0f051d;
+      color: #fff;
+      overflow-x: hidden;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
     }
 
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-.opening-heart{
-
-    font-size:80px;
-
-    filter:
-        drop-shadow(
-            0 0 35px
-            #ff6da5
-        );
-
-    animation:
-        heartbeat 1.5s infinite;
-}
-
-@keyframes heartbeat{
-
-    50%{
-        transform:scale(1.15);
-    }
-}
-
-.opening-name{
-
-    margin-top:25px;
-
-    font-size:42px;
-
-    font-weight:normal;
-}
-
-.opening-date{
-
-    margin-top:12px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:7px;
-
-    opacity:.5;
-}
-
-.enter{
-
-    margin-top:40px;
-
-    padding:15px 30px;
-
-    border-radius:40px;
-
-    border:
-        1px solid
-        rgba(255,255,255,.35);
-
-    background:
-        rgba(255,255,255,.1);
-
-    color:white;
-
-    font-family:Arial,sans-serif;
-
-    font-size:12px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(12px);
-
-    transition:.4s;
-}
-
-.enter:hover{
-    transform:scale(1.06);
-}
-
-
-/* =====================================
-   HERO
-===================================== */
-
-.hero{
-
-    height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    position:relative;
-}
-
-.hero-content{
-
-    animation:
-        heroAppear 2s ease;
-}
-
-@keyframes heroAppear{
-
-    from{
-        opacity:0;
-        transform:scale(.94);
+    /* Background Star Glow Effects */
+    .bg-glow {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 75, 110, 0.25) 0%, rgba(15, 5, 29, 0) 70%);
+      z-index: 0;
+      pointer-events: none;
     }
 
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.hero-heart{
-
-    font-size:70px;
-
-    filter:
-        drop-shadow(
-            0 0 35px
-            #ff438f
-        );
-
-    animation:
-        heartbeat 1.6s infinite;
-}
-
-.hero h1{
-
-    margin-top:15px;
-
-    font-size:
-        clamp(
-            65px,
-            18vw,
-            105px
-        );
-
-    font-weight:normal;
-
-    background:
-        linear-gradient(
-            90deg,
-            #fff,
-            #ffd0e1,
-            #fff
-        );
-
-    -webkit-background-clip:text;
-
-    -webkit-text-fill-color:transparent;
-}
-
-.hero-sub{
-
-    margin-top:8px;
-
-    font-size:28px;
-
-    font-style:italic;
-
-    color:#ffd5e5;
-
-    text-shadow:
-        0 0 20px
-        rgba(255,140,190,.7);
-}
-
-.scroll{
-
-    margin-top:70px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:4px;
-
-    opacity:.4;
-}
-
-
-/* =====================================
-   LOVE WORDS
-===================================== */
-
-.feeling{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:40px 25px;
-}
-
-.feeling-box{
-
-    max-width:600px;
-}
-
-.small{
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:5px;
-
-    opacity:.4;
-
-    margin-bottom:30px;
-}
-
-.feeling h2{
-
-    font-size:
-        clamp(
-            32px,
-            8vw,
-            52px
-        );
-
-    font-weight:normal;
-
-    line-height:1.35;
-}
-
-.feeling h2 span{
-
-    color:#ffb5d0;
-
-}
-
-
-/* =====================================
-   PHOTO MOMENTS
-===================================== */
-
-.photos-section{
-
-    min-height:100vh;
-
-    padding:80px 20px;
-
-    text-align:center;
-}
-
-.section-title{
-
-    font-size:32px;
-
-    font-weight:normal;
-
-    margin-bottom:50px;
-}
-
-.photo-stage{
-
-    position:relative;
-
-    width:100%;
-
-    max-width:470px;
-
-    height:470px;
-
-    margin:auto;
-}
-
-.photo{
-
-    position:absolute;
-
-    width:80%;
-
-    height:400px;
-
-    left:10%;
-
-    top:20px;
-
-    padding:7px;
-
-    border-radius:22px;
-
-    background:#fff;
-
-    box-shadow:
-        0 30px 80px
-        rgba(0,0,0,.6);
-
-    opacity:0;
-
-    transform:
-        scale(.9)
-        rotate(-4deg);
-
-    transition:
-        opacity 1.2s ease,
-        transform 1.2s ease;
-}
-
-.photo.active{
-
-    opacity:1;
-
-    transform:
-        scale(1)
-        rotate(-2deg);
-}
-
-.photo img{
-
-    width:100%;
-    height:100%;
-
-    object-fit:cover;
-
-    border-radius:16px;
-}
-
-.photo-count{
-
-    margin-top:15px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:5px;
-
-    opacity:.35;
-}
-
-
-/* =====================================
-   LOVE DEFINITION
-===================================== */
-
-.definition{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-
-    padding:40px 25px;
-}
-
-.definition-box{
-
-    max-width:550px;
-}
-
-.definition-word{
-
-    font-size:12px;
-
-    letter-spacing:8px;
-
-    font-family:Arial,sans-serif;
-
-    opacity:.4;
-
-    margin-bottom:35px;
-}
-
-.definition-text{
-
-    font-size:
-        clamp(
-            28px,
-            7vw,
-            45px
-        );
-
-    line-height:1.5;
-
-    font-weight:normal;
-}
-
-.definition-text span{
-
-    color:#ffb7d1;
-
-}
-
-
-/* =====================================
-   SURPRISE
-===================================== */
-
-.surprise{
-
-    min-height:100vh;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    text-align:center;
-}
-
-.gift{
-
-    font-size:75px;
-
-    cursor:pointer;
-
-    filter:
-        drop-shadow(
-            0 0 30px
-            rgba(255,120,180,.8)
-        );
-
-    animation:
-        giftFloat 2s infinite;
-}
-
-@keyframes giftFloat{
-
-    50%{
-        transform:translateY(-8px);
-    }
-}
-
-.gift-label{
-
-    margin-top:12px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:4px;
-
-    opacity:.4;
-}
-
-
-/* =====================================
-   FINAL
-===================================== */
-
-.final{
-
-    min-height:100vh;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    text-align:center;
-
-    padding:30px;
-}
-
-.final-heart{
-
-    font-size:65px;
-
-    animation:
-        heartbeat 1.6s infinite;
-}
-
-.final h2{
-
-    margin-top:20px;
-
-    font-size:38px;
-
-    font-weight:normal;
-}
-
-.final-name{
-
-    margin-top:15px;
-
-    font-size:20px;
-
-    color:#ffc4d9;
-}
-
-.final-date{
-
-    margin-top:35px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:10px;
-
-    letter-spacing:7px;
-
-    color:#ff9fbe;
-}
-
-
-/* =====================================
-   SECRET POPUP
-===================================== */
-
-#secret{
-
-    display:none;
-
-    position:fixed;
-
-    inset:0;
-
-    z-index:500;
-
-    align-items:center;
-    justify-content:center;
-
-    padding:25px;
-
-    background:
-        rgba(25,2,14,.85);
-
-    backdrop-filter:blur(18px);
-}
-
-.secret-box{
-
-    width:100%;
-
-    max-width:430px;
-
-    padding:50px 30px;
-
-    text-align:center;
-
-    border-radius:30px;
-
-    background:
-        rgba(255,130,180,.1);
-
-    border:
-        1px solid
-        rgba(255,255,255,.2);
-
-    box-shadow:
-        0 30px 100px
-        rgba(0,0,0,.6);
-
-    animation:
-        secretAppear 1s ease;
-}
-
-@keyframes secretAppear{
-
-    from{
-        opacity:0;
-        transform:scale(.8);
+    /* Infinite Marquee 1 - Large Heading */
+    .marquee-container {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      background: rgba(255, 255, 255, 0.03);
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 15px 0;
+      margin-top: 30px;
+      z-index: 2;
     }
 
-    to{
-        opacity:1;
-        transform:scale(1);
-    }
-}
-
-.secret-heart{
-    font-size:60px;
-}
-
-.secret-title{
-
-    margin-top:20px;
-
-    font-size:40px;
-
-    font-weight:normal;
-}
-
-.secret-text{
-
-    margin-top:15px;
-
-    font-size:18px;
-
-    line-height:1.7;
-
-    color:#ffd8e6;
-}
-
-.secret-name{
-
-    margin-top:20px;
-
-    font-size:22px;
-
-    color:#ffb9d1;
-}
-
-.close{
-
-    margin-top:30px;
-
-    font-family:Arial,sans-serif;
-
-    font-size:9px;
-
-    letter-spacing:3px;
-
-    opacity:.35;
-
-    cursor:pointer;
-}
-
-
-/* =====================================
-   FLOATING HEARTS
-===================================== */
-
-.float{
-
-    position:fixed;
-
-    bottom:-50px;
-
-    z-index:50;
-
-    pointer-events:none;
-
-    animation:
-        floatUp
-        linear
-        forwards;
-
-    text-shadow:
-        0 0 15px
-        rgba(255,120,180,.9);
-}
-
-@keyframes floatUp{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateY(0)
-            translateX(0)
-            rotate(0);
+    .marquee-content {
+      display: inline-block;
+      animation: scrollLeft 25s linear infinite;
     }
 
-    15%{
-        opacity:.8;
+    .marquee-text {
+      font-size: 2rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #ff4b6e, #ff85a2, #ffd1dc);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      padding: 0 20px;
+      letter-spacing: 2px;
     }
 
-    100%{
-        opacity:0;
-
-        transform:
-            translateY(-110vh)
-            translateX(var(--move))
-            rotate(var(--rotate));
-    }
-}
-
-
-/* =====================================
-   FLOATING "I LOVE YOU"
-===================================== */
-
-.love-float{
-
-    position:fixed;
-
-    bottom:-40px;
-
-    z-index:49;
-
-    pointer-events:none;
-
-    color:#ffd8e7;
-
-    font-size:15px;
-
-    font-style:italic;
-
-    text-shadow:
-        0 0 15px
-        rgba(255,120,180,.9);
-
-    animation:
-        loveUp
-        9s
-        linear
-        forwards;
-}
-
-@keyframes loveUp{
-
-    0%{
-        opacity:0;
-
-        transform:
-            translateY(0)
-            translateX(0);
+    /* Infinite Marquee 2 - Emoji Trail */
+    .emoji-marquee {
+      width: 100%;
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 10px 0;
+      z-index: 2;
+      margin-bottom: 30px;
     }
 
-    15%{
-        opacity:.7;
+    .emoji-content {
+      display: inline-block;
+      animation: scrollRight 20s linear infinite;
+      font-size: 1.8rem;
     }
 
-    100%{
-        opacity:0;
-
-        transform:
-            translateY(-110vh)
-            translateX(var(--move));
-    }
-}
-
-
-/* =====================================
-   MOBILE
-===================================== */
-
-@media(max-width:600px){
-
-    .photo{
-
-        height:380px;
+    /* Main Hero Card */
+    .hero-card {
+      position: relative;
+      z-index: 2;
+      background: rgba(255, 255, 255, 0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 30px;
+      padding: 40px 30px;
+      text-align: center;
+      max-width: 450px;
+      width: 90%;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+      margin: 20px 0;
+      transition: transform 0.3s ease;
     }
 
-    .photo-stage{
-
-        height:430px;
+    .hero-card:hover {
+      transform: translateY(-5px);
     }
 
-}
+    .avatar-heart {
+      font-size: 4rem;
+      animation: pulse 1.5s infinite alternate;
+      display: inline-block;
+      margin-bottom: 10px;
+    }
 
-</style>
+    h1.name {
+      font-size: 3rem;
+      font-weight: 800;
+      color: #ffffff;
+      text-shadow: 0 0 20px rgba(255, 75, 110, 0.8);
+      margin-bottom: 10px;
+    }
 
+    p.subtitle {
+      color: #ff85a2;
+      font-size: 1.1rem;
+      font-weight: 300;
+      margin-bottom: 25px;
+    }
+
+    /* Interactive Tap Button */
+    .special-btn {
+      background: linear-gradient(135deg, #ff4b6e, #ff758c);
+      color: white;
+      border: none;
+      padding: 15px 35px;
+      border-radius: 50px;
+      font-size: 1.1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 10px 25px rgba(255, 75, 110, 0.4);
+      transition: all 0.3s ease;
+    }
+
+    .special-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(255, 75, 110, 0.6);
+    }
+
+    /* Hidden Love Secret Box */
+    .secret-box {
+      display: none;
+      margin-top: 25px;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 20px;
+      border: 1px dashed rgba(255, 133, 162, 0.5);
+      animation: fadeIn 1s forwards;
+      line-height: 1.7;
+      font-size: 1rem;
+      color: #e0e0e0;
+    }
+
+    /* Falling Emojis / Particles */
+    .falling-emoji {
+      position: fixed;
+      top: -50px;
+      z-index: 1;
+      pointer-events: none;
+      user-select: none;
+      animation: fall linear forwards;
+    }
+
+    /* Animations */
+    @keyframes scrollLeft {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+
+    @keyframes scrollRight {
+      0% { transform: translateX(-50%); }
+      100% { transform: translateX(0); }
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); filter: drop-shadow(0 0 5px #ff4b6e); }
+      100% { transform: scale(1.15); filter: drop-shadow(0 0 20px #ff4b6e); }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(105vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
 </head>
-
-
 <body>
 
+  <div class="bg-glow"></div>
 
-<!-- =================================
-     BACKGROUND
-================================= -->
+  <!-- Scrolling Text Line 1 -->
+  <div class="marquee-container">
+    <div class="marquee-content" id="textMarquee"></div>
+  </div>
 
-<div class="background">
+  <!-- Main Romantic Card -->
+  <div class="hero-card">
+    <div class="avatar-heart">💖</div>
+    <h1 class="name">Najwa</h1>
+    <p class="subtitle">You Are My Today & All Of My Tomorrows</p>
 
-    <div class="light one"></div>
-    <div class="light two"></div>
-    <div class="light three"></div>
+    <button class="special-btn" onclick="revealSecret()">✨ Tap For A Surprise</button>
 
-</div>
-
-<div class="stars"></div>
-
-
-<!-- =================================
-     OPENING
-================================= -->
-
-<div id="opening">
-
-    <div class="opening-content">
-
-        <div class="opening-heart">
-            ❤️
-        </div>
-
-        <div class="opening-name">
-            Najwa
-        </div>
-
-        <div class="opening-date">
-            8 • 8
-        </div>
-
-        <button
-            class="enter"
-            onclick="startLove()"
-        >
-            Tap to enter ❤️
-        </button>
-
+    <div class="secret-box" id="secretMessage">
+      <p>🌹 <strong>My Dearest Najwa,</strong></p>
+      <p style="margin-top: 8px;">
+        Out of millions of people in this world, my heart chose you. Every moment with you feels like a beautiful dream. You bring light, laughter, and infinite joy into my life!
+      </p>
     </div>
-
-</div>
-
-
-<!-- =================================
-     MUSIC
-================================= -->
-
-<audio
-    id="music"
-    loop
->
-
-    <source
-        src="music.mp3"
-        type="audio/mpeg"
-    >
-
-</audio>
-
-
-<!-- =================================
-     HERO
-================================= -->
-
-<section class="hero">
-
-    <div class="hero-content">
-
-        <div class="hero-heart">
-            ❤️
-        </div>
-
-        <h1>
-            Najwa
-        </h1>
-
-        <div class="hero-sub">
-            Be Mine.
-        </div>
-
-        <div class="scroll">
-            SCROLL SLOWLY ↓
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     FEELING
-================================= -->
-
-<section class="feeling">
-
-    <div class="feeling-box">
-
-        <div class="small">
-            IF I HAD TO EXPLAIN
-        </div>
-
-        <h2>
-            You became
-            <span>
-                my favorite feeling.
-            </span>
-        </h2>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     PHOTOS
-================================= -->
-
-<section class="photos-section">
-
-    <div class="section-title">
-        Little moments of love
-    </div>
-
-    <div class="photo-stage">
-
-        <div class="photo active">
-
-            <img
-                src="love1.jpg"
-                alt="Love"
-            >
-
-        </div>
-
-        <div class="photo">
-
-            <img
-                src="love2.jpg"
-                alt="Love"
-            >
-
-        </div>
-
-        <div class="photo">
-
-            <img
-                src="love3.jpg"
-                alt="Love"
-            >
-
-        </div>
-
-        <div class="photo">
-
-            <img
-                src="love4.jpg"
-                alt="Love"
-            >
-
-        </div>
-
-    </div>
-
-    <div
-        class="photo-count"
-        id="photoCount"
-    >
-        01
-    </div>
-
-</section>
-
-
-<!-- =================================
-     LOVE DEFINITION
-================================= -->
-
-<section class="definition">
-
-    <div class="definition-box">
-
-        <div class="definition-word">
-            LOVE
-        </div>
-
-        <div class="definition-text">
-
-            It isn't having
-            everything.
-
-            <br><br>
-
-            It's finding
-            <span>
-                someone
-            </span>
-            who makes
-            everything feel
-            different.
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     SURPRISE
-================================= -->
-
-<section class="surprise">
-
-    <div>
-
-        <div
-            class="gift"
-            onclick="openGift()"
-        >
-            🎁
-        </div>
-
-        <div class="gift-label">
-            ONE LAST THING
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     FINAL
-================================= -->
-
-<section class="final">
-
-    <div>
-
-        <div class="final-heart">
-            ❤️
-        </div>
-
-        <h2>
-            Najwa
-        </h2>
-
-        <div class="final-name">
-            You have my heart.
-        </div>
-
-        <div class="final-date">
-            8 • 8
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =================================
-     SECRET
-================================= -->
-
-<div id="secret">
-
-    <div class="secret-box">
-
-        <div class="secret-heart">
-            ❤️
-        </div>
-
-        <div class="secret-title">
-            Be Mine.
-        </div>
-
-        <div class="secret-text">
-            I love you.
-            <br>
-            More than these words can say.
-        </div>
-
-        <div class="secret-name">
-            Naj ❤️
-        </div>
-
-        <div
-            class="close"
-            onclick="closeGift()"
-        >
-            TAP TO CLOSE
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-
-
-/* =================================
-   START
-================================= */
-
-function startLove(){
-
-    const opening =
-        document.getElementById(
-            "opening"
-        );
-
-    const music =
-        document.getElementById(
-            "music"
-        );
-
-
-    music.volume=.65;
-
-
-    /*
-       The tap allows iPhone
-       to start the music.
-    */
-
-    music.play()
-    .catch(function(){});
-
-
-    opening.style.opacity="0";
-
-
-    setTimeout(function(){
-
-        opening.style.display="none";
-
-    },1400);
-
-
-    for(
-        let i=0;
-        i<15;
-        i++
-    ){
-
-        setTimeout(
-            createFloat,
-            i*100
-        );
-
+  </div>
+
+  <!-- Scrolling Emojis Line 2 -->
+  <div class="emoji-marquee">
+    <div class="emoji-content" id="emojiMarquee"></div>
+  </div>
+
+  <script>
+    // 1. Populate Infinite Scrolling Text
+    const textStream = "I LOVE YOU NAJWA ❤️ FOREVER & ALWAYS 💖 YOU ARE MY EVERYTHING 💕 ";
+    const textMarquee = document.getElementById('textMarquee');
+    textMarquee.innerHTML = textStream.repeat(10);
+
+    // 2. Populate Infinite Scrolling Emojis
+    const emojiStream = "💖 🌸 💍 ✨ 💕 🌹 🧸 ❤️ 👑 🥂 🦋 ";
+    const emojiMarquee = document.getElementById('emojiMarquee');
+    emojiMarquee.innerHTML = emojiStream.repeat(15);
+
+    // 3. Reveal Secret Note
+    function revealSecret() {
+      const box = document.getElementById('secretMessage');
+      box.style.display = 'block';
+      
+      // Burst of love particles on button click
+      for(let i = 0; i < 30; i++) {
+        setTimeout(createEmoji, i * 50);
+      }
     }
 
-}
+    // 4. Continuous Emoji Rain
+    const emojis = ['❤️', '💖', '✨', '🌹', '💕', '🌸', '👑', '🦋'];
+    
+    function createEmoji() {
+      const emoji = document.createElement('div');
+      emoji.classList.add('falling-emoji');
+      emoji.innerText = emojis[Math.floor(Math.random() * emojis.length)];
+      
+      emoji.style.left = Math.random() * 100 + 'vw';
+      emoji.style.animationDuration = Math.random() * 3 + 3 + 's'; // 3 to 6 sec speed
+      emoji.style.fontSize = Math.random() * 20 + 15 + 'px'; // 15px to 35px
+      
+      document.body.appendChild(emoji);
 
-
-/* =================================
-   PHOTOS
-================================= */
-
-const photos =
-    document.querySelectorAll(
-        ".photo"
-    );
-
-let currentPhoto=0;
-
-
-setInterval(function(){
-
-    photos[currentPhoto]
-        .classList
-        .remove("active");
-
-
-    currentPhoto++;
-
-
-    if(
-        currentPhoto>=photos.length
-    ){
-
-        currentPhoto=0;
-
+      setTimeout(() => {
+        emoji.remove();
+      }, 6000);
     }
 
-
-    photos[currentPhoto]
-        .classList
-        .add("active");
-
-
-    document.getElementById(
-        "photoCount"
-    ).innerText=
-        "0"+(currentPhoto+1);
-
-},4000);
-
-
-/* =================================
-   GIFT
-================================= */
-
-function openGift(){
-
-    document
-        .getElementById("secret")
-        .style.display="flex";
-
-
-    for(
-        let i=0;
-        i<40;
-        i++
-    ){
-
-        setTimeout(
-            createFloat,
-            i*60
-        );
-
-    }
-
-}
-
-
-function closeGift(){
-
-    document
-        .getElementById("secret")
-        .style.display="none";
-
-}
-
-
-/* =================================
-   FLOATING HEARTS
-================================= */
-
-function createFloat(){
-
-    const item =
-        document.createElement(
-            "div"
-        );
-
-    item.className="float";
-
-
-    const symbols=[
-
-        "❤️",
-        "💗",
-        "💕",
-        "💖",
-        "💘",
-        "💞",
-        "💓",
-        "💝",
-        "🌸"
-
-    ];
-
-
-    item.innerHTML=
-        symbols[
-            Math.floor(
-                Math.random()
-                *symbols.length
-            )
-        ];
-
-
-    item.style.left=
-        Math.random()*100+"vw";
-
-
-    item.style.fontSize=
-        (
-            13+
-            Math.random()*23
-        )+"px";
-
-
-    item.style.setProperty(
-        "--move",
-        (
-            Math.random()*180-90
-        )+"px"
-    );
-
-
-    item.style.setProperty(
-        "--rotate",
-        (
-            Math.random()*360
-        )+"deg"
-    );
-
-
-    item.style.animationDuration=
-        (
-            6+
-            Math.random()*7
-        )+"s";
-
-
-    document.body.appendChild(item);
-
-
-    setTimeout(function(){
-
-        item.remove();
-
-    },15000);
-
-}
-
-
-/* =================================
-   FLOATING LOVE WORDS
-================================= */
-
-function createLoveText(){
-
-    const text =
-        document.createElement(
-            "div"
-        );
-
-    text.className=
-        "love-float";
-
-
-    text.innerHTML=
-        "I love you ❤️";
-
-
-    text.style.left=
-        Math.random()*85+"vw";
-
-
-    text.style.setProperty(
-        "--move",
-        (
-            Math.random()*160-80
-        )+"px"
-    );
-
-
-    document.body.appendChild(text);
-
-
-    setTimeout(function(){
-
-        text.remove();
-
-    },10000);
-
-}
-
-
-/* =================================
-   AMBIENT ANIMATION
-================================= */
-
-setInterval(
-    createFloat,
-    1100
-);
-
-
-setInterval(function(){
-
-    if(
-        Math.random()<.45
-    ){
-
-        createLoveText();
-
-    }
-
-},3500);
-
-</script>
-
-
+    setInterval(createEmoji, 300);
+
+    // 5. Interactive Touch Effect (Hearts pop wherever she touches/clicks)
+    document.addEventListener('click', function(e) {
+      const pop = document.createElement('div');
+      pop.innerText = '💖';
+      pop.style.position = 'fixed';
+      pop.style.left = e.clientX + 'px';
+      pop.style.top = e.clientY + 'px';
+      pop.style.pointerEvents = 'none';
+      pop.style.fontSize = '24px';
+      pop.style.transform = 'translate(-50%, -50%)';
+      pop.style.animation = 'pulse 0.6s ease-out forwards';
+      pop.style.zIndex = '9999';
+      
+      document.body.appendChild(pop);
+      setTimeout(() => pop.remove(), 600);
+    });
+  </script>
 </body>
 </html>
