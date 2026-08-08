@@ -9,9 +9,9 @@
 
 <style>
 
-/* =====================================
+/* =========================
    RESET
-===================================== */
+========================= */
 
 *{
     margin:0;
@@ -32,22 +32,21 @@ body{
 }
 
 
-/* =====================================
-   OPENING NIGHT
-===================================== */
+/* =========================
+   NIGHT BACKGROUND
+========================= */
 
 .night{
     position:fixed;
     inset:0;
-    z-index:-10;
     overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 50% 25%,
-            #1a3155 0%,
-            #0b192d 30%,
-            #030914 70%,
+            circle at 50% 24%,
+            #172b4b 0%,
+            #0b1729 30%,
+            #030812 70%,
             #010207 100%
         );
 
@@ -55,7 +54,7 @@ body{
 }
 
 
-/* Moon */
+/* MOON */
 
 .moon{
     position:absolute;
@@ -74,22 +73,25 @@ body{
         radial-gradient(
             circle at 35% 30%,
             #ffffff,
-            #e1edf7 55%,
-            #a4b9cf 100%
+            #e2edf7 55%,
+            #a5bad0 100%
         );
 
     box-shadow:
-        0 0 45px rgba(220,235,255,.6),
-        0 0 140px rgba(120,175,235,.32);
+        0 0 40px rgba(220,235,255,.55),
+        0 0 130px rgba(120,170,230,.3);
 }
+
+
+/* MOON GLOW */
 
 .moon-glow{
     position:absolute;
 
-    width:650px;
-    height:650px;
+    width:600px;
+    height:600px;
 
-    top:-120px;
+    top:-100px;
     left:50%;
 
     transform:translateX(-50%);
@@ -99,108 +101,155 @@ body{
     background:
         radial-gradient(
             circle,
-            rgba(150,195,245,.2),
+            rgba(150,190,240,.18),
             transparent 65%
         );
 }
 
 
-/* Stars */
+/* STARS */
 
 .stars{
     position:absolute;
     inset:0;
 
     background-image:
+
         radial-gradient(
             #fff 1px,
             transparent 1px
         ),
+
         radial-gradient(
-            #c7ddff 1px,
+            #b9d7ff 1px,
             transparent 1px
         );
 
     background-size:
         90px 90px,
-        170px 170px;
+        160px 160px;
 
     background-position:
         20px 30px,
-        70px 80px;
+        80px 70px;
 
     opacity:.45;
 
     animation:
-        starsMove 35s linear infinite;
+        stars 35s linear infinite;
 }
 
-@keyframes starsMove{
+@keyframes stars{
 
     to{
-        transform:translateY(-120px);
+        transform:translateY(-100px);
     }
+
 }
 
 
-/* =====================================
-   FANTASY WORLD
-===================================== */
+/* =========================
+   FANTASY BACKGROUND
+========================= */
 
-.fantasy{
+.pink-dream{
 
     position:fixed;
     inset:0;
 
-    z-index:-9;
-
     opacity:0;
 
-    overflow:hidden;
+    pointer-events:none;
 
     background:
 
         radial-gradient(
-            ellipse at 50% 30%,
-            rgba(135,110,255,.55),
-            transparent 32%
+            circle at 50% 18%,
+            rgba(150,190,255,.45),
+            transparent 30%
         ),
 
         radial-gradient(
-            ellipse at 10% 80%,
-            rgba(65,120,220,.4),
+            circle at 15% 75%,
+            rgba(170,90,210,.35),
             transparent 35%
         ),
 
         radial-gradient(
-            ellipse at 90% 75%,
-            rgba(165,70,180,.35),
+            circle at 85% 65%,
+            rgba(100,140,255,.30),
             transparent 35%
         ),
 
         linear-gradient(
-            180deg,
-            #090b30 0%,
-            #17124b 35%,
-            #24134b 60%,
-            #09051c 100%
+            160deg,
+            #071329,
+            #101c42,
+            #251b55,
+            #171333,
+            #080b20
         );
 
     transition:
-        opacity 2.5s ease;
+        opacity 2s ease;
 }
 
 
-/* fantasy moon */
+/* fantasy stars */
 
-.fantasy-moon{
+.pink-dream::before{
+
+    content:"";
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+
+        radial-gradient(
+            #ffffff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            #bba8ff 1px,
+            transparent 1px
+        );
+
+    background-size:
+        80px 80px,
+        150px 150px;
+
+    opacity:.45;
+
+    animation:
+        fantasyStars
+        30s
+        linear
+        infinite;
+}
+
+@keyframes fantasyStars{
+
+    to{
+        transform:translateY(-120px);
+    }
+
+}
+
+
+/* fantasy glow */
+
+.pink-dream::after{
+
+    content:"";
 
     position:absolute;
 
-    width:190px;
-    height:190px;
+    width:650px;
+    height:650px;
 
-    top:8%;
+    top:-250px;
     left:50%;
 
     transform:translateX(-50%);
@@ -209,167 +258,18 @@ body{
 
     background:
         radial-gradient(
-            circle at 35% 30%,
-            #fff,
-            #f5e9ff 50%,
-            #d5b8e9 100%
-        );
-
-    box-shadow:
-
-        0 0 35px
-        rgba(255,240,255,.7),
-
-        0 0 100px
-        rgba(160,130,255,.6),
-
-        0 0 180px
-        rgba(100,120,255,.25);
-}
-
-
-/* clouds */
-
-.cloud{
-
-    position:absolute;
-
-    width:320px;
-    height:75px;
-
-    border-radius:100px;
-
-    background:
-        rgba(190,205,255,.08);
-
-    filter:blur(12px);
-
-    animation:
-        cloudMove
-        18s
-        ease-in-out
-        infinite alternate;
-}
-
-.cloud:before,
-.cloud:after{
-
-    content:"";
-
-    position:absolute;
-
-    border-radius:50%;
-
-    background:
-        rgba(200,215,255,.09);
-}
-
-.cloud:before{
-
-    width:130px;
-    height:130px;
-
-    left:45px;
-    bottom:-5px;
-}
-
-.cloud:after{
-
-    width:100px;
-    height:100px;
-
-    right:45px;
-    bottom:0;
-}
-
-.cloud.one{
-
-    top:33%;
-    left:-80px;
-}
-
-.cloud.two{
-
-    top:52%;
-    right:-100px;
-
-    animation-delay:5s;
-}
-
-.cloud.three{
-
-    top:72%;
-    left:-150px;
-
-    transform:scale(.7);
-
-    animation-delay:9s;
-}
-
-@keyframes cloudMove{
-
-    from{
-        transform:translateX(-30px);
-    }
-
-    to{
-        transform:translateX(120px);
-    }
-}
-
-
-/* fantasy stars */
-
-.fantasy-stars{
-
-    position:absolute;
-    inset:0;
-
-    background-image:
-
-        radial-gradient(
-            #fff 1px,
-            transparent 1px
-        ),
-
-        radial-gradient(
-            #dcbfff 1px,
-            transparent 1px
-        );
-
-    background-size:
-        75px 75px,
-        135px 135px;
-
-    opacity:.5;
-}
-
-
-/* glowing horizon */
-
-.horizon{
-
-    position:absolute;
-
-    width:100%;
-    height:45%;
-
-    bottom:-20%;
-
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(120,80,220,.35),
+            circle,
+            rgba(150,130,255,.25),
             transparent 65%
         );
 
-    filter:blur(30px);
+    filter:blur(10px);
 }
 
 
-/* =====================================
+/* =========================
    ENTER SCREEN
-===================================== */
+========================= */
 
 #enter{
 
@@ -391,7 +291,9 @@ body{
 }
 
 .enter-content{
-    animation:appear 2s ease;
+
+    animation:
+        appear 2s ease;
 }
 
 @keyframes appear{
@@ -405,6 +307,7 @@ body{
         opacity:1;
         transform:translateY(0);
     }
+
 }
 
 .enter-small{
@@ -415,7 +318,7 @@ body{
 
     letter-spacing:7px;
 
-    color:#9eb5d0;
+    color:#8fa8c2;
 
     margin-bottom:30px;
 }
@@ -424,7 +327,8 @@ body{
 
     font-size:70px;
 
-    animation:beat 1.8s infinite;
+    animation:
+        beat 1.8s infinite;
 
     filter:
         drop-shadow(
@@ -438,6 +342,7 @@ body{
     50%{
         transform:scale(1.13);
     }
+
 }
 
 .enter-name{
@@ -479,13 +384,13 @@ body{
 
     color:white;
 
-    cursor:pointer;
-
     font-family:Arial,sans-serif;
 
     font-size:10px;
 
     letter-spacing:4px;
+
+    cursor:pointer;
 
     transition:.5s;
 }
@@ -493,15 +398,15 @@ body{
 .enter-button:hover{
 
     background:
-        rgba(255,255,255,.1);
+        rgba(255,255,255,.12);
 
     transform:scale(1.05);
 }
 
 
-/* =====================================
+/* =========================
    MAIN
-===================================== */
+========================= */
 
 #main{
 
@@ -525,6 +430,11 @@ body{
         opacity 2s ease;
 }
 
+
+/* =========================
+   NAME
+========================= */
+
 .main-content{
 
     position:relative;
@@ -538,12 +448,13 @@ body{
 
     font-size:55px;
 
-    animation:beat 1.7s infinite;
+    animation:
+        beat 1.7s infinite;
 
     filter:
         drop-shadow(
-            0 0 30px
-            rgba(255,80,160,.8)
+            0 0 35px
+            rgba(255,70,150,.9)
         );
 }
 
@@ -560,15 +471,15 @@ body{
 
     font-weight:normal;
 
-    color:#f4b4ff;
+    color:#ffb2d3;
 
     text-shadow:
 
         0 0 15px
-        rgba(190,120,255,.9),
+        rgba(255,70,150,.7),
 
         0 0 50px
-        rgba(150,80,255,.55);
+        rgba(255,40,140,.45);
 }
 
 .be-mine{
@@ -579,10 +490,15 @@ body{
 
     font-style:italic;
 
-    color:#ffe6f3;
+    color:#ffe2ed;
 
     letter-spacing:2px;
 }
+
+
+/* =========================
+   MESSAGE
+========================= */
 
 .message{
 
@@ -590,25 +506,25 @@ body{
 
     font-family:Arial,sans-serif;
 
-    font-size:10px;
+    font-size:11px;
 
-    letter-spacing:4px;
+    letter-spacing:3px;
 
-    color:#d9caff;
+    color:#d8d2ff;
 
     opacity:.75;
 }
 
 
-/* =====================================
+/* =========================
    GIFT
-===================================== */
+========================= */
 
 .gift-area{
 
     position:absolute;
 
-    bottom:50px;
+    bottom:55px;
 
     left:0;
     right:0;
@@ -628,47 +544,44 @@ body{
 
     filter:
         drop-shadow(
-            0 0 35px
-            rgba(180,110,255,.9)
+            0 0 30px
+            rgba(190,120,255,.9)
         );
 
     animation:
-        giftFloat
-        2s
-        ease-in-out
-        infinite;
+        gift 2s ease-in-out infinite;
 }
 
-@keyframes giftFloat{
+@keyframes gift{
 
     0%,100%{
-        transform:translateY(0);
+        transform:translateY(0) rotate(0);
     }
 
     50%{
-        transform:translateY(-12px);
+        transform:translateY(-12px) rotate(3deg);
     }
 }
 
 .gift-text{
 
-    margin-top:8px;
+    margin-top:10px;
 
     font-family:Arial,sans-serif;
 
-    font-size:8px;
+    font-size:9px;
 
     letter-spacing:4px;
 
-    color:#e5d8ff;
+    color:#e2d8ff;
 
-    opacity:.5;
+    opacity:.55;
 }
 
 
-/* =====================================
+/* =========================
    FLOATING EMOJIS
-===================================== */
+========================= */
 
 .float{
 
@@ -686,8 +599,8 @@ body{
         forwards;
 
     text-shadow:
-        0 0 18px
-        rgba(210,110,255,.9);
+        0 0 15px
+        rgba(255,90,170,.9);
 }
 
 @keyframes floatUp{
@@ -718,9 +631,9 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    I LOVE YOU
-===================================== */
+========================= */
 
 .love-text{
 
@@ -732,7 +645,7 @@ body{
 
     pointer-events:none;
 
-    color:#ffe8f3;
+    color:#fff0f6;
 
     font-size:17px;
 
@@ -742,7 +655,7 @@ body{
 
     text-shadow:
         0 0 18px
-        rgba(255,100,190,.9);
+        rgba(255,80,160,.9);
 
     animation:
         loveUp
@@ -777,29 +690,29 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    MUAH
-===================================== */
+========================= */
 
 .muah{
 
     position:fixed;
 
-    bottom:-50px;
+    bottom:-60px;
 
-    z-index:46;
+    z-index:60;
 
     pointer-events:none;
 
-    color:#ffd3e8;
+    color:#ffd6e8;
 
-    font-size:16px;
+    font-size:17px;
 
     font-style:italic;
 
     text-shadow:
-        0 0 20px
-        rgba(255,100,190,.9);
+        0 0 18px
+        rgba(255,80,160,.9);
 
     animation:
         muahUp
@@ -831,15 +744,15 @@ body{
         transform:
             translateY(-95vh)
             translateX(var(--move))
-            scale(1.3)
+            scale(1.25)
             rotate(8deg);
     }
 }
 
 
-/* =====================================
+/* =========================
    FINAL
-===================================== */
+========================= */
 
 #final{
 
@@ -859,10 +772,10 @@ body{
     padding:30px;
 
     background:
-        rgba(20,5,35,.5);
+        rgba(10,8,30,.55);
 
     backdrop-filter:
-        blur(14px);
+        blur(12px);
 
     animation:
         finalAppear
@@ -879,6 +792,7 @@ body{
     to{
         opacity:1;
     }
+
 }
 
 .final-box{
@@ -892,12 +806,13 @@ body{
 @keyframes finalScale{
 
     from{
-        transform:scale(.75);
+        transform:scale(.7);
     }
 
     to{
         transform:scale(1);
     }
+
 }
 
 .final-heart{
@@ -916,11 +831,11 @@ body{
 
     font-size:48px;
 
-    color:#f3b6ff;
+    color:#ffb2d3;
 
     text-shadow:
-        0 0 35px
-        rgba(180,100,255,.8);
+        0 0 30px
+        rgba(255,70,150,.8);
 }
 
 .final-title{
@@ -944,7 +859,7 @@ body{
 
     line-height:1.8;
 
-    color:#eadcf5;
+    color:#ffd9e7;
 }
 
 .final-date{
@@ -976,28 +891,27 @@ body{
 }
 
 
-/* =====================================
+/* =========================
    MOBILE
-===================================== */
+========================= */
 
 @media(max-width:600px){
 
     .moon{
+
         width:175px;
         height:175px;
+
         top:11%;
     }
 
-    .fantasy-moon{
-        width:150px;
-        height:150px;
-    }
-
     .name{
+
         font-size:68px;
     }
 
     .gift{
+
         font-size:65px;
     }
 
@@ -1011,9 +925,9 @@ body{
 <body>
 
 
-<!-- =====================================
-     ORIGINAL NIGHT
-===================================== -->
+<!-- =========================
+     NIGHT
+========================= -->
 
 <div class="night">
 
@@ -1026,31 +940,19 @@ body{
 </div>
 
 
-<!-- =====================================
-     FANTASY WORLD
-===================================== -->
+<!-- =========================
+     FANTASY BACKGROUND
+========================= -->
 
 <div
-    class="fantasy"
-    id="fantasy"
->
-
-    <div class="fantasy-moon"></div>
-
-    <div class="fantasy-stars"></div>
-
-    <div class="cloud one"></div>
-    <div class="cloud two"></div>
-    <div class="cloud three"></div>
-
-    <div class="horizon"></div>
-
+    class="pink-dream"
+    id="pink">
 </div>
 
 
-<!-- =====================================
+<!-- =========================
      ENTER
-===================================== -->
+========================= -->
 
 <div id="enter">
 
@@ -1084,9 +986,9 @@ body{
 </div>
 
 
-<!-- =====================================
+<!-- =========================
      MUSIC
-===================================== -->
+========================= -->
 
 <audio
     id="music"
@@ -1101,9 +1003,9 @@ body{
 </audio>
 
 
-<!-- =====================================
+<!-- =========================
      MAIN
-===================================== -->
+========================= -->
 
 <div id="main">
 
@@ -1148,9 +1050,9 @@ body{
 </div>
 
 
-<!-- =====================================
-     FINAL
-===================================== -->
+<!-- =========================
+     FINAL MESSAGE
+========================= -->
 
 <div id="final">
 
@@ -1199,26 +1101,26 @@ body{
 <script>
 
 
-/* =====================================
-   ENTER
-===================================== */
+/* =========================
+   ENTER WEBSITE
+========================= */
 
 function enterSite(){
 
     const enter =
         document.getElementById("enter");
 
-    const night =
-        document.querySelector(".night");
-
-    const fantasy =
-        document.getElementById("fantasy");
-
     const main =
         document.getElementById("main");
 
+    const pink =
+        document.getElementById("pink");
 
-    /* fade out opening */
+    const night =
+        document.querySelector(".night");
+
+
+    /* fade entrance away */
 
     enter.style.opacity="0";
 
@@ -1229,27 +1131,28 @@ function enterSite(){
 
 
         /*
-           The original moon disappears
-           and the fantasy world appears.
+           IMPORTANT:
+           The fantasy background appears
+           directly over the night.
+           No black screen.
         */
 
         night.style.opacity="0";
 
-        fantasy.style.opacity="1";
+        pink.style.opacity="1";
 
         main.style.opacity="1";
 
         main.style.pointerEvents="auto";
-
 
     },1200);
 
 }
 
 
-/* =====================================
-   GIFT
-===================================== */
+/* =========================
+   OPEN GIFT
+========================= */
 
 function openGift(){
 
@@ -1257,52 +1160,50 @@ function openGift(){
         document.getElementById("music");
 
 
-    /* music starts after tap */
+    /*
+       The user has tapped,
+       so mobile browsers allow
+       the music to start.
+    */
 
     music.volume=.65;
 
     music.play().catch(()=>{});
 
 
-    /*
-       BIG EMOJI WAVE
-    */
+    /* HEARTS + FLOWERS + SPARKLES */
 
     for(
         let i=0;
-        i<130;
+        i<100;
         i++
     ){
 
         setTimeout(
             createFloat,
-            i*30
+            i*35
         );
 
     }
 
 
-    /*
-       I LOVE YOU
-    */
+    /* I LOVE YOU */
 
     for(
         let i=0;
-        i<20;
+        i<18;
         i++
     ){
 
         setTimeout(
             createLove,
-            i*250
+            i*300
         );
 
     }
 
 
-    /*
-       MUAH
-    */
+    /* MUAH */
 
     for(
         let i=0;
@@ -1318,9 +1219,7 @@ function openGift(){
     }
 
 
-    /*
-       Final message
-    */
+    /* FINAL MESSAGE */
 
     setTimeout(function(){
 
@@ -1333,9 +1232,9 @@ function openGift(){
 }
 
 
-/* =====================================
-   EMOJIS
-===================================== */
+/* =========================
+   FLOATING EMOJIS
+========================= */
 
 function createFloat(){
 
@@ -1378,14 +1277,14 @@ function createFloat(){
     item.style.fontSize =
         (
             12+
-            Math.random()*30
+            Math.random()*28
         )+"px";
 
 
     item.style.setProperty(
         "--x",
         (
-            Math.random()*240-120
+            Math.random()*220-110
         )+"px"
     );
 
@@ -1401,7 +1300,7 @@ function createFloat(){
     item.style.animationDuration =
         (
             5+
-            Math.random()*7
+            Math.random()*6
         )+"s";
 
 
@@ -1412,14 +1311,14 @@ function createFloat(){
 
         item.remove();
 
-    },14000);
+    },13000);
 
 }
 
 
-/* =====================================
+/* =========================
    I LOVE YOU
-===================================== */
+========================= */
 
 function createLove(){
 
@@ -1433,7 +1332,7 @@ function createLove(){
 
 
     love.style.left =
-        Math.random()*82+"vw";
+        Math.random()*80+"vw";
 
 
     love.style.setProperty(
@@ -1463,9 +1362,9 @@ function createLove(){
 }
 
 
-/* =====================================
+/* =========================
    MUAH
-===================================== */
+========================= */
 
 function createMuah(){
 
@@ -1502,19 +1401,19 @@ function createMuah(){
 }
 
 
-/* =====================================
-   CONTINUOUS MAGIC
-===================================== */
+/* =========================
+   BACKGROUND EMOJIS
+========================= */
 
 setInterval(
     createFloat,
-    1800
+    1600
 );
 
 
-/* =====================================
-   CLOSE
-===================================== */
+/* =========================
+   CLOSE FINAL
+========================= */
 
 function closeFinal(){
 
