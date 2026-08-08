@@ -9,9 +9,9 @@
 
 <style>
 
-/* =========================
+/* =====================================
    RESET
-========================= */
+===================================== */
 
 *{
     margin:0;
@@ -32,30 +32,30 @@ body{
 }
 
 
-/* =========================
-   NIGHT BACKGROUND
-========================= */
+/* =====================================
+   OPENING NIGHT
+===================================== */
 
 .night{
     position:fixed;
     inset:0;
+    z-index:-10;
     overflow:hidden;
 
     background:
         radial-gradient(
-            circle at 50% 24%,
-            #172b4b 0%,
-            #0b1729 30%,
-            #030812 70%,
+            circle at 50% 25%,
+            #1a3155 0%,
+            #0b192d 30%,
+            #030914 70%,
             #010207 100%
         );
 
-    transition:
-        opacity 1.8s ease;
+    transition:opacity 2s ease;
 }
 
 
-/* moon */
+/* Moon */
 
 .moon{
     position:absolute;
@@ -74,25 +74,22 @@ body{
         radial-gradient(
             circle at 35% 30%,
             #ffffff,
-            #e2edf7 55%,
-            #a5bad0 100%
+            #e1edf7 55%,
+            #a4b9cf 100%
         );
 
     box-shadow:
-        0 0 40px rgba(220,235,255,.55),
-        0 0 130px rgba(120,170,230,.3);
+        0 0 45px rgba(220,235,255,.6),
+        0 0 140px rgba(120,175,235,.32);
 }
-
-
-/* moon glow */
 
 .moon-glow{
     position:absolute;
 
-    width:600px;
-    height:600px;
+    width:650px;
+    height:650px;
 
-    top:-100px;
+    top:-120px;
     left:50%;
 
     transform:translateX(-50%);
@@ -102,13 +99,13 @@ body{
     background:
         radial-gradient(
             circle,
-            rgba(150,190,240,.18),
+            rgba(150,195,245,.2),
             transparent 65%
         );
 }
 
 
-/* stars */
+/* Stars */
 
 .stars{
     position:absolute;
@@ -120,83 +117,259 @@ body{
             transparent 1px
         ),
         radial-gradient(
-            #b9d7ff 1px,
+            #c7ddff 1px,
             transparent 1px
         );
 
     background-size:
         90px 90px,
-        160px 160px;
+        170px 170px;
 
     background-position:
         20px 30px,
-        80px 70px;
+        70px 80px;
 
     opacity:.45;
 
     animation:
-        stars 35s linear infinite;
+        starsMove 35s linear infinite;
 }
 
-@keyframes stars{
+@keyframes starsMove{
 
     to{
-        transform:translateY(-100px);
+        transform:translateY(-120px);
     }
-
 }
 
 
-/* =========================
-   PINK DREAM BACKGROUND
-========================= */
+/* =====================================
+   FANTASY WORLD
+===================================== */
 
-.pink-dream{
+.fantasy{
 
     position:fixed;
     inset:0;
 
+    z-index:-9;
+
     opacity:0;
 
-    pointer-events:none;
+    overflow:hidden;
 
     background:
 
         radial-gradient(
-            circle at 50% 35%,
-            rgba(255,100,175,.7),
-            transparent 28%
+            ellipse at 50% 30%,
+            rgba(135,110,255,.55),
+            transparent 32%
         ),
 
         radial-gradient(
-            circle at 15% 80%,
-            rgba(220,30,120,.5),
+            ellipse at 10% 80%,
+            rgba(65,120,220,.4),
             transparent 35%
         ),
 
         radial-gradient(
-            circle at 90% 15%,
-            rgba(255,150,205,.4),
+            ellipse at 90% 75%,
+            rgba(165,70,180,.35),
             transparent 35%
         ),
 
         linear-gradient(
-            150deg,
-            #16020d,
-            #4b092d,
-            #9b285f,
-            #36051f,
-            #090108
+            180deg,
+            #090b30 0%,
+            #17124b 35%,
+            #24134b 60%,
+            #09051c 100%
         );
 
     transition:
-        opacity 2s ease;
+        opacity 2.5s ease;
 }
 
 
-/* =========================
+/* fantasy moon */
+
+.fantasy-moon{
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    top:8%;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #fff,
+            #f5e9ff 50%,
+            #d5b8e9 100%
+        );
+
+    box-shadow:
+
+        0 0 35px
+        rgba(255,240,255,.7),
+
+        0 0 100px
+        rgba(160,130,255,.6),
+
+        0 0 180px
+        rgba(100,120,255,.25);
+}
+
+
+/* clouds */
+
+.cloud{
+
+    position:absolute;
+
+    width:320px;
+    height:75px;
+
+    border-radius:100px;
+
+    background:
+        rgba(190,205,255,.08);
+
+    filter:blur(12px);
+
+    animation:
+        cloudMove
+        18s
+        ease-in-out
+        infinite alternate;
+}
+
+.cloud:before,
+.cloud:after{
+
+    content:"";
+
+    position:absolute;
+
+    border-radius:50%;
+
+    background:
+        rgba(200,215,255,.09);
+}
+
+.cloud:before{
+
+    width:130px;
+    height:130px;
+
+    left:45px;
+    bottom:-5px;
+}
+
+.cloud:after{
+
+    width:100px;
+    height:100px;
+
+    right:45px;
+    bottom:0;
+}
+
+.cloud.one{
+
+    top:33%;
+    left:-80px;
+}
+
+.cloud.two{
+
+    top:52%;
+    right:-100px;
+
+    animation-delay:5s;
+}
+
+.cloud.three{
+
+    top:72%;
+    left:-150px;
+
+    transform:scale(.7);
+
+    animation-delay:9s;
+}
+
+@keyframes cloudMove{
+
+    from{
+        transform:translateX(-30px);
+    }
+
+    to{
+        transform:translateX(120px);
+    }
+}
+
+
+/* fantasy stars */
+
+.fantasy-stars{
+
+    position:absolute;
+    inset:0;
+
+    background-image:
+
+        radial-gradient(
+            #fff 1px,
+            transparent 1px
+        ),
+
+        radial-gradient(
+            #dcbfff 1px,
+            transparent 1px
+        );
+
+    background-size:
+        75px 75px,
+        135px 135px;
+
+    opacity:.5;
+}
+
+
+/* glowing horizon */
+
+.horizon{
+
+    position:absolute;
+
+    width:100%;
+    height:45%;
+
+    bottom:-20%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(120,80,220,.35),
+            transparent 65%
+        );
+
+    filter:blur(30px);
+}
+
+
+/* =====================================
    ENTER SCREEN
-========================= */
+===================================== */
 
 #enter{
 
@@ -218,9 +391,7 @@ body{
 }
 
 .enter-content{
-
-    animation:
-        appear 2s ease;
+    animation:appear 2s ease;
 }
 
 @keyframes appear{
@@ -234,7 +405,6 @@ body{
         opacity:1;
         transform:translateY(0);
     }
-
 }
 
 .enter-small{
@@ -245,7 +415,7 @@ body{
 
     letter-spacing:7px;
 
-    color:#8fa8c2;
+    color:#9eb5d0;
 
     margin-bottom:30px;
 }
@@ -254,8 +424,7 @@ body{
 
     font-size:70px;
 
-    animation:
-        beat 1.8s infinite;
+    animation:beat 1.8s infinite;
 
     filter:
         drop-shadow(
@@ -269,7 +438,6 @@ body{
     50%{
         transform:scale(1.13);
     }
-
 }
 
 .enter-name{
@@ -311,13 +479,13 @@ body{
 
     color:white;
 
+    cursor:pointer;
+
     font-family:Arial,sans-serif;
 
     font-size:10px;
 
     letter-spacing:4px;
-
-    cursor:pointer;
 
     transition:.5s;
 }
@@ -325,16 +493,15 @@ body{
 .enter-button:hover{
 
     background:
-        rgba(255,255,255,.12);
+        rgba(255,255,255,.1);
 
     transform:scale(1.05);
-
 }
 
 
-/* =========================
-   MAIN SCREEN
-========================= */
+/* =====================================
+   MAIN
+===================================== */
 
 #main{
 
@@ -358,11 +525,6 @@ body{
         opacity 2s ease;
 }
 
-
-/* =========================
-   NAME
-========================= */
-
 .main-content{
 
     position:relative;
@@ -376,13 +538,12 @@ body{
 
     font-size:55px;
 
-    animation:
-        beat 1.7s infinite;
+    animation:beat 1.7s infinite;
 
     filter:
         drop-shadow(
-            0 0 35px
-            rgba(255,70,150,.9)
+            0 0 30px
+            rgba(255,80,160,.8)
         );
 }
 
@@ -399,15 +560,15 @@ body{
 
     font-weight:normal;
 
-    color:#ffb2d3;
+    color:#f4b4ff;
 
     text-shadow:
 
         0 0 15px
-        rgba(255,70,150,.7),
+        rgba(190,120,255,.9),
 
         0 0 50px
-        rgba(255,40,140,.45);
+        rgba(150,80,255,.55);
 }
 
 .be-mine{
@@ -418,15 +579,10 @@ body{
 
     font-style:italic;
 
-    color:#ffe2ed;
+    color:#ffe6f3;
 
     letter-spacing:2px;
 }
-
-
-/* =========================
-   LITTLE MESSAGE
-========================= */
 
 .message{
 
@@ -434,25 +590,25 @@ body{
 
     font-family:Arial,sans-serif;
 
-    font-size:11px;
+    font-size:10px;
 
-    letter-spacing:3px;
+    letter-spacing:4px;
 
-    color:#ffd1e2;
+    color:#d9caff;
 
     opacity:.75;
 }
 
 
-/* =========================
+/* =====================================
    GIFT
-========================= */
+===================================== */
 
 .gift-area{
 
     position:absolute;
 
-    bottom:55px;
+    bottom:50px;
 
     left:0;
     right:0;
@@ -472,44 +628,47 @@ body{
 
     filter:
         drop-shadow(
-            0 0 30px
-            rgba(255,100,180,.9)
+            0 0 35px
+            rgba(180,110,255,.9)
         );
 
     animation:
-        gift 2s ease-in-out infinite;
+        giftFloat
+        2s
+        ease-in-out
+        infinite;
 }
 
-@keyframes gift{
+@keyframes giftFloat{
 
     0%,100%{
-        transform:translateY(0) rotate(0);
+        transform:translateY(0);
     }
 
     50%{
-        transform:translateY(-12px) rotate(3deg);
+        transform:translateY(-12px);
     }
 }
 
 .gift-text{
 
-    margin-top:10px;
+    margin-top:8px;
 
     font-family:Arial,sans-serif;
 
-    font-size:9px;
+    font-size:8px;
 
     letter-spacing:4px;
 
-    color:#ffd5e5;
+    color:#e5d8ff;
 
-    opacity:.55;
+    opacity:.5;
 }
 
 
-/* =========================
+/* =====================================
    FLOATING EMOJIS
-========================= */
+===================================== */
 
 .float{
 
@@ -527,8 +686,8 @@ body{
         forwards;
 
     text-shadow:
-        0 0 15px
-        rgba(255,90,170,.9);
+        0 0 18px
+        rgba(210,110,255,.9);
 }
 
 @keyframes floatUp{
@@ -559,9 +718,9 @@ body{
 }
 
 
-/* =========================
-   I LOVE YOU FLOAT
-========================= */
+/* =====================================
+   I LOVE YOU
+===================================== */
 
 .love-text{
 
@@ -573,7 +732,7 @@ body{
 
     pointer-events:none;
 
-    color:#fff0f6;
+    color:#ffe8f3;
 
     font-size:17px;
 
@@ -583,7 +742,7 @@ body{
 
     text-shadow:
         0 0 18px
-        rgba(255,80,160,.9);
+        rgba(255,100,190,.9);
 
     animation:
         loveUp
@@ -595,6 +754,7 @@ body{
 @keyframes loveUp{
 
     0%{
+
         opacity:0;
 
         transform:
@@ -607,6 +767,7 @@ body{
     }
 
     100%{
+
         opacity:0;
 
         transform:
@@ -616,9 +777,69 @@ body{
 }
 
 
-/* =========================
-   FINAL MESSAGE
-========================= */
+/* =====================================
+   MUAH
+===================================== */
+
+.muah{
+
+    position:fixed;
+
+    bottom:-50px;
+
+    z-index:46;
+
+    pointer-events:none;
+
+    color:#ffd3e8;
+
+    font-size:16px;
+
+    font-style:italic;
+
+    text-shadow:
+        0 0 20px
+        rgba(255,100,190,.9);
+
+    animation:
+        muahUp
+        7s
+        ease-out
+        forwards;
+}
+
+@keyframes muahUp{
+
+    0%{
+
+        opacity:0;
+
+        transform:
+            translateY(0)
+            scale(.7)
+            rotate(-8deg);
+    }
+
+    15%{
+        opacity:1;
+    }
+
+    100%{
+
+        opacity:0;
+
+        transform:
+            translateY(-95vh)
+            translateX(var(--move))
+            scale(1.3)
+            rotate(8deg);
+    }
+}
+
+
+/* =====================================
+   FINAL
+===================================== */
 
 #final{
 
@@ -638,13 +859,15 @@ body{
     padding:30px;
 
     background:
-        rgba(20,0,12,.65);
+        rgba(20,5,35,.5);
 
     backdrop-filter:
-        blur(12px);
+        blur(14px);
 
     animation:
-        finalAppear 1.5s ease;
+        finalAppear
+        1.5s
+        ease;
 }
 
 @keyframes finalAppear{
@@ -656,25 +879,25 @@ body{
     to{
         opacity:1;
     }
-
 }
 
 .final-box{
 
     animation:
-        finalScale 1.2s ease;
+        finalScale
+        1.2s
+        ease;
 }
 
 @keyframes finalScale{
 
     from{
-        transform:scale(.7);
+        transform:scale(.75);
     }
 
     to{
         transform:scale(1);
     }
-
 }
 
 .final-heart{
@@ -682,7 +905,9 @@ body{
     font-size:65px;
 
     animation:
-        beat 1.5s infinite;
+        beat
+        1.5s
+        infinite;
 }
 
 .final-name{
@@ -691,11 +916,11 @@ body{
 
     font-size:48px;
 
-    color:#ffb2d3;
+    color:#f3b6ff;
 
     text-shadow:
-        0 0 30px
-        rgba(255,70,150,.8);
+        0 0 35px
+        rgba(180,100,255,.8);
 }
 
 .final-title{
@@ -719,7 +944,7 @@ body{
 
     line-height:1.8;
 
-    color:#ffd9e7;
+    color:#eadcf5;
 }
 
 .final-date{
@@ -734,11 +959,6 @@ body{
 
     opacity:.45;
 }
-
-
-/* =========================
-   CLOSE
-========================= */
 
 .close{
 
@@ -756,27 +976,28 @@ body{
 }
 
 
-/* =========================
+/* =====================================
    MOBILE
-========================= */
+===================================== */
 
 @media(max-width:600px){
 
     .moon{
-
         width:175px;
         height:175px;
-
         top:11%;
     }
 
-    .name{
+    .fantasy-moon{
+        width:150px;
+        height:150px;
+    }
 
+    .name{
         font-size:68px;
     }
 
     .gift{
-
         font-size:65px;
     }
 
@@ -790,9 +1011,9 @@ body{
 <body>
 
 
-<!-- =========================
-     NIGHT
-========================= -->
+<!-- =====================================
+     ORIGINAL NIGHT
+===================================== -->
 
 <div class="night">
 
@@ -805,17 +1026,31 @@ body{
 </div>
 
 
-<!-- PINK TRANSITION -->
+<!-- =====================================
+     FANTASY WORLD
+===================================== -->
 
 <div
-    class="pink-dream"
-    id="pink"
-></div>
+    class="fantasy"
+    id="fantasy"
+>
+
+    <div class="fantasy-moon"></div>
+
+    <div class="fantasy-stars"></div>
+
+    <div class="cloud one"></div>
+    <div class="cloud two"></div>
+    <div class="cloud three"></div>
+
+    <div class="horizon"></div>
+
+</div>
 
 
-<!-- =========================
+<!-- =====================================
      ENTER
-========================= -->
+===================================== -->
 
 <div id="enter">
 
@@ -849,9 +1084,9 @@ body{
 </div>
 
 
-<!-- =========================
+<!-- =====================================
      MUSIC
-========================= -->
+===================================== -->
 
 <audio
     id="music"
@@ -866,9 +1101,9 @@ body{
 </audio>
 
 
-<!-- =========================
+<!-- =====================================
      MAIN
-========================= -->
+===================================== -->
 
 <div id="main">
 
@@ -913,9 +1148,9 @@ body{
 </div>
 
 
-<!-- =========================
+<!-- =====================================
      FINAL
-========================= -->
+===================================== -->
 
 <div id="final">
 
@@ -940,6 +1175,8 @@ body{
             I chose my heart.
             <br>
             And it chose you.
+            <br><br>
+            Muah 💋
 
         </div>
 
@@ -962,23 +1199,26 @@ body{
 <script>
 
 
-/* =========================
+/* =====================================
    ENTER
-========================= */
+===================================== */
 
 function enterSite(){
 
     const enter =
         document.getElementById("enter");
 
+    const night =
+        document.querySelector(".night");
+
+    const fantasy =
+        document.getElementById("fantasy");
+
     const main =
         document.getElementById("main");
 
-    const pink =
-        document.getElementById("pink");
 
-
-    /* first screen disappears */
+    /* fade out opening */
 
     enter.style.opacity="0";
 
@@ -987,27 +1227,29 @@ function enterSite(){
 
         enter.style.display="none";
 
+
         /*
-          The beautiful
-          night transforms
-          into the romantic
-          pink dream.
+           The original moon disappears
+           and the fantasy world appears.
         */
 
-        pink.style.opacity="1";
+        night.style.opacity="0";
+
+        fantasy.style.opacity="1";
 
         main.style.opacity="1";
 
         main.style.pointerEvents="auto";
+
 
     },1200);
 
 }
 
 
-/* =========================
+/* =====================================
    GIFT
-========================= */
+===================================== */
 
 function openGift(){
 
@@ -1015,48 +1257,70 @@ function openGift(){
         document.getElementById("music");
 
 
-    /*
-      Music starts here.
-      This works with iPhone
-      because the user tapped.
-    */
+    /* music starts after tap */
 
     music.volume=.65;
 
     music.play().catch(()=>{});
 
 
-    /* massive romantic burst */
+    /*
+       BIG EMOJI WAVE
+    */
 
     for(
         let i=0;
-        i<100;
+        i<130;
         i++
     ){
 
         setTimeout(
             createFloat,
-            i*35
+            i*30
         );
 
     }
 
 
-    /* floating I LOVE YOU */
+    /*
+       I LOVE YOU
+    */
 
     for(
         let i=0;
-        i<18;
+        i<20;
         i++
     ){
 
         setTimeout(
             createLove,
-            i*300
+            i*250
         );
 
     }
 
+
+    /*
+       MUAH
+    */
+
+    for(
+        let i=0;
+        i<8;
+        i++
+    ){
+
+        setTimeout(
+            createMuah,
+            i*500
+        );
+
+    }
+
+
+    /*
+       Final message
+    */
 
     setTimeout(function(){
 
@@ -1064,14 +1328,14 @@ function openGift(){
             .getElementById("final")
             .style.display="flex";
 
-    },2800);
+    },3000);
 
 }
 
 
-/* =========================
-   FLOATING EMOJIS
-========================= */
+/* =====================================
+   EMOJIS
+===================================== */
 
 function createFloat(){
 
@@ -1114,14 +1378,14 @@ function createFloat(){
     item.style.fontSize =
         (
             12+
-            Math.random()*28
+            Math.random()*30
         )+"px";
 
 
     item.style.setProperty(
         "--x",
         (
-            Math.random()*220-110
+            Math.random()*240-120
         )+"px"
     );
 
@@ -1137,7 +1401,7 @@ function createFloat(){
     item.style.animationDuration =
         (
             5+
-            Math.random()*6
+            Math.random()*7
         )+"s";
 
 
@@ -1148,14 +1412,14 @@ function createFloat(){
 
         item.remove();
 
-    },13000);
+    },14000);
 
 }
 
 
-/* =========================
+/* =====================================
    I LOVE YOU
-========================= */
+===================================== */
 
 function createLove(){
 
@@ -1169,7 +1433,7 @@ function createLove(){
 
 
     love.style.left =
-        Math.random()*80+"vw";
+        Math.random()*82+"vw";
 
 
     love.style.setProperty(
@@ -1199,19 +1463,58 @@ function createLove(){
 }
 
 
-/* =========================
-   BACKGROUND EMOJIS
-========================= */
+/* =====================================
+   MUAH
+===================================== */
+
+function createMuah(){
+
+    const muah =
+        document.createElement("div");
+
+    muah.className="muah";
+
+    muah.innerHTML=
+        "Muah 💋";
+
+
+    muah.style.left =
+        Math.random()*80+"vw";
+
+
+    muah.style.setProperty(
+        "--move",
+        (
+            Math.random()*180-90
+        )+"px"
+    );
+
+
+    document.body.appendChild(muah);
+
+
+    setTimeout(function(){
+
+        muah.remove();
+
+    },9000);
+
+}
+
+
+/* =====================================
+   CONTINUOUS MAGIC
+===================================== */
 
 setInterval(
     createFloat,
-    1600
+    1800
 );
 
 
-/* =========================
-   CLOSE FINAL
-========================= */
+/* =====================================
+   CLOSE
+===================================== */
 
 function closeFinal(){
 
