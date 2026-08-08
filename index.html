@@ -50,11 +50,12 @@ body{
             #010207 100%
         );
 
-    transition:opacity 2s ease;
+    transition:
+        opacity 1.8s ease;
 }
 
 
-/* MOON */
+/* moon */
 
 .moon{
     position:absolute;
@@ -83,7 +84,7 @@ body{
 }
 
 
-/* MOON GLOW */
+/* moon glow */
 
 .moon-glow{
     position:absolute;
@@ -107,19 +108,17 @@ body{
 }
 
 
-/* STARS */
+/* stars */
 
 .stars{
     position:absolute;
     inset:0;
 
     background-image:
-
         radial-gradient(
             #fff 1px,
             transparent 1px
         ),
-
         radial-gradient(
             #b9d7ff 1px,
             transparent 1px
@@ -149,7 +148,7 @@ body{
 
 
 /* =========================
-   FANTASY BACKGROUND
+   PINK DREAM BACKGROUND
 ========================= */
 
 .pink-dream{
@@ -164,106 +163,34 @@ body{
     background:
 
         radial-gradient(
-            circle at 50% 18%,
-            rgba(150,190,255,.45),
-            transparent 30%
+            circle at 50% 35%,
+            rgba(255,100,175,.7),
+            transparent 28%
         ),
 
         radial-gradient(
-            circle at 15% 75%,
-            rgba(170,90,210,.35),
+            circle at 15% 80%,
+            rgba(220,30,120,.5),
             transparent 35%
         ),
 
         radial-gradient(
-            circle at 85% 65%,
-            rgba(100,140,255,.30),
+            circle at 90% 15%,
+            rgba(255,150,205,.4),
             transparent 35%
         ),
 
         linear-gradient(
-            160deg,
-            #071329,
-            #101c42,
-            #251b55,
-            #171333,
-            #080b20
+            150deg,
+            #16020d,
+            #4b092d,
+            #9b285f,
+            #36051f,
+            #090108
         );
 
     transition:
         opacity 2s ease;
-}
-
-
-/* fantasy stars */
-
-.pink-dream::before{
-
-    content:"";
-
-    position:absolute;
-    inset:0;
-
-    background-image:
-
-        radial-gradient(
-            #ffffff 1px,
-            transparent 1px
-        ),
-
-        radial-gradient(
-            #bba8ff 1px,
-            transparent 1px
-        );
-
-    background-size:
-        80px 80px,
-        150px 150px;
-
-    opacity:.45;
-
-    animation:
-        fantasyStars
-        30s
-        linear
-        infinite;
-}
-
-@keyframes fantasyStars{
-
-    to{
-        transform:translateY(-120px);
-    }
-
-}
-
-
-/* fantasy glow */
-
-.pink-dream::after{
-
-    content:"";
-
-    position:absolute;
-
-    width:650px;
-    height:650px;
-
-    top:-250px;
-    left:50%;
-
-    transform:translateX(-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(150,130,255,.25),
-            transparent 65%
-        );
-
-    filter:blur(10px);
 }
 
 
@@ -401,11 +328,12 @@ body{
         rgba(255,255,255,.12);
 
     transform:scale(1.05);
+
 }
 
 
 /* =========================
-   MAIN
+   MAIN SCREEN
 ========================= */
 
 #main{
@@ -497,7 +425,7 @@ body{
 
 
 /* =========================
-   MESSAGE
+   LITTLE MESSAGE
 ========================= */
 
 .message{
@@ -510,7 +438,7 @@ body{
 
     letter-spacing:3px;
 
-    color:#d8d2ff;
+    color:#ffd1e2;
 
     opacity:.75;
 }
@@ -545,7 +473,7 @@ body{
     filter:
         drop-shadow(
             0 0 30px
-            rgba(190,120,255,.9)
+            rgba(255,100,180,.9)
         );
 
     animation:
@@ -573,7 +501,7 @@ body{
 
     letter-spacing:4px;
 
-    color:#e2d8ff;
+    color:#ffd5e5;
 
     opacity:.55;
 }
@@ -632,7 +560,7 @@ body{
 
 
 /* =========================
-   I LOVE YOU
+   I LOVE YOU FLOAT
 ========================= */
 
 .love-text{
@@ -667,7 +595,6 @@ body{
 @keyframes loveUp{
 
     0%{
-
         opacity:0;
 
         transform:
@@ -680,7 +607,6 @@ body{
     }
 
     100%{
-
         opacity:0;
 
         transform:
@@ -691,67 +617,7 @@ body{
 
 
 /* =========================
-   MUAH
-========================= */
-
-.muah{
-
-    position:fixed;
-
-    bottom:-60px;
-
-    z-index:60;
-
-    pointer-events:none;
-
-    color:#ffd6e8;
-
-    font-size:17px;
-
-    font-style:italic;
-
-    text-shadow:
-        0 0 18px
-        rgba(255,80,160,.9);
-
-    animation:
-        muahUp
-        7s
-        ease-out
-        forwards;
-}
-
-@keyframes muahUp{
-
-    0%{
-
-        opacity:0;
-
-        transform:
-            translateY(0)
-            scale(.7)
-            rotate(-8deg);
-    }
-
-    15%{
-        opacity:1;
-    }
-
-    100%{
-
-        opacity:0;
-
-        transform:
-            translateY(-95vh)
-            translateX(var(--move))
-            scale(1.25)
-            rotate(8deg);
-    }
-}
-
-
-/* =========================
-   FINAL
+   FINAL MESSAGE
 ========================= */
 
 #final{
@@ -772,15 +638,13 @@ body{
     padding:30px;
 
     background:
-        rgba(10,8,30,.55);
+        rgba(20,0,12,.65);
 
     backdrop-filter:
         blur(12px);
 
     animation:
-        finalAppear
-        1.5s
-        ease;
+        finalAppear 1.5s ease;
 }
 
 @keyframes finalAppear{
@@ -798,9 +662,7 @@ body{
 .final-box{
 
     animation:
-        finalScale
-        1.2s
-        ease;
+        finalScale 1.2s ease;
 }
 
 @keyframes finalScale{
@@ -820,9 +682,7 @@ body{
     font-size:65px;
 
     animation:
-        beat
-        1.5s
-        infinite;
+        beat 1.5s infinite;
 }
 
 .final-name{
@@ -874,6 +734,11 @@ body{
 
     opacity:.45;
 }
+
+
+/* =========================
+   CLOSE
+========================= */
 
 .close{
 
@@ -940,14 +805,12 @@ body{
 </div>
 
 
-<!-- =========================
-     FANTASY BACKGROUND
-========================= -->
+<!-- PINK TRANSITION -->
 
 <div
     class="pink-dream"
-    id="pink">
-</div>
+    id="pink"
+></div>
 
 
 <!-- =========================
@@ -1051,7 +914,7 @@ body{
 
 
 <!-- =========================
-     FINAL MESSAGE
+     FINAL
 ========================= -->
 
 <div id="final">
@@ -1077,8 +940,6 @@ body{
             I chose my heart.
             <br>
             And it chose you.
-            <br><br>
-            Muah 💋
 
         </div>
 
@@ -1102,7 +963,7 @@ body{
 
 
 /* =========================
-   ENTER WEBSITE
+   ENTER
 ========================= */
 
 function enterSite(){
@@ -1116,11 +977,8 @@ function enterSite(){
     const pink =
         document.getElementById("pink");
 
-    const night =
-        document.querySelector(".night");
 
-
-    /* fade entrance away */
+    /* first screen disappears */
 
     enter.style.opacity="0";
 
@@ -1129,15 +987,12 @@ function enterSite(){
 
         enter.style.display="none";
 
-
         /*
-           IMPORTANT:
-           The fantasy background appears
-           directly over the night.
-           No black screen.
+          The beautiful
+          night transforms
+          into the romantic
+          pink dream.
         */
-
-        night.style.opacity="0";
 
         pink.style.opacity="1";
 
@@ -1151,7 +1006,7 @@ function enterSite(){
 
 
 /* =========================
-   OPEN GIFT
+   GIFT
 ========================= */
 
 function openGift(){
@@ -1161,9 +1016,9 @@ function openGift(){
 
 
     /*
-       The user has tapped,
-       so mobile browsers allow
-       the music to start.
+      Music starts here.
+      This works with iPhone
+      because the user tapped.
     */
 
     music.volume=.65;
@@ -1171,7 +1026,7 @@ function openGift(){
     music.play().catch(()=>{});
 
 
-    /* HEARTS + FLOWERS + SPARKLES */
+    /* massive romantic burst */
 
     for(
         let i=0;
@@ -1187,7 +1042,7 @@ function openGift(){
     }
 
 
-    /* I LOVE YOU */
+    /* floating I LOVE YOU */
 
     for(
         let i=0;
@@ -1203,31 +1058,13 @@ function openGift(){
     }
 
 
-    /* MUAH */
-
-    for(
-        let i=0;
-        i<8;
-        i++
-    ){
-
-        setTimeout(
-            createMuah,
-            i*500
-        );
-
-    }
-
-
-    /* FINAL MESSAGE */
-
     setTimeout(function(){
 
         document
             .getElementById("final")
             .style.display="flex";
 
-    },3000);
+    },2800);
 
 }
 
@@ -1358,45 +1195,6 @@ function createLove(){
         love.remove();
 
     },12000);
-
-}
-
-
-/* =========================
-   MUAH
-========================= */
-
-function createMuah(){
-
-    const muah =
-        document.createElement("div");
-
-    muah.className="muah";
-
-    muah.innerHTML=
-        "Muah 💋";
-
-
-    muah.style.left =
-        Math.random()*80+"vw";
-
-
-    muah.style.setProperty(
-        "--move",
-        (
-            Math.random()*180-90
-        )+"px"
-    );
-
-
-    document.body.appendChild(muah);
-
-
-    setTimeout(function(){
-
-        muah.remove();
-
-    },9000);
 
 }
 
